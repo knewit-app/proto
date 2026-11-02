@@ -1,6 +1,8 @@
 # KNEWIT 프로토타입
 
-배포 주소: https://knewit-app.github.io/proto/ (`gh-pages` 브랜치)
+배포 주소: https://knewit-app.github.io/proto/
+
+`main`에 올리면 GitHub Actions(`.github/workflows/pages.yml`)가 파일을 `gh-pages` 브랜치로 복사하고, Pages가 그 브랜치를 서빙합니다. `gh-pages`는 직접 고치지 않습니다.
 
 왼쪽 목록에서 버전별·스프린트별로 골라 볼 수 있습니다. `#v3.4`처럼 주소 끝에 버전을 붙이면 그 버전이 바로 열립니다.
 
@@ -14,4 +16,4 @@
    ```js
    {v:"3.7", sprint:2, date:"2026-11-05", file:"v/3.7.html", note:"화면 43개"},
    ```
-3. `gh-pages` 브랜치에 커밋하고 올리면 1분쯤 뒤 반영됩니다.
+3. `main`에 커밋하고 올리면 1~2분 뒤 반영됩니다. 진행 상황은 저장소의 Actions 탭에서 봅니다.
