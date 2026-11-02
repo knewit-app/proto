@@ -46,6 +46,8 @@ body.collapsed .side{border-right:0}
 .list{flex:1;overflow-y:auto;padding:4px 10px 16px;min-width:var(--side)}
 .grp{font-size:11.5px;font-weight:600;color:var(--ink-3);padding:14px 8px 6px}
 .grp:first-child{padding-top:6px}
+.grp{display:flex;justify-content:space-between;gap:8px}
+.grp span{font-weight:500;font-variant-numeric:tabular-nums}
 .item{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border-radius:10px;padding:9px 10px;margin:1px 0}
 @media (hover:hover){.item:hover{background:var(--surface-2)}}
 .item[aria-current="page"]{background:var(--brand-soft)}
@@ -87,7 +89,7 @@ iframe{border:0;width:100%;height:100%;display:block;background:var(--ground)}
   <div class="shead"><div class="brand">KNEWIT<small>인터랙티브 프로토타입</small></div></div>
   <div class="seg" role="tablist" aria-label="정렬 기준">
     <button role="tab" data-by="ver" aria-selected="true">버전별</button>
-    <button role="tab" data-by="date" aria-selected="false">날짜별</button>
+    <button role="tab" data-by="sprint" aria-selected="false">스프린트별</button>
   </div>
   <nav class="list" id="list"></nav>
   <div class="sfoot"><span id="count"></span><a id="newtab" href="#" target="_blank" rel="noopener">새 탭에서 열기 ↗</a></div>
@@ -98,20 +100,19 @@ iframe{border:0;width:100%;height:100%;display:block;background:var(--ground)}
 <main class="frame"><iframe id="view" title="KNEWIT 프로토타입"></iframe></main>
 
 <script>
-/* 버전 목록 — 새 버전을 올리면 v/ 폴더에 파일을 넣고 여기 한 줄을 추가한다 (위가 최신) */
+/* 버전 목록 — 새 버전을 올리면 v/ 폴더에 파일을 넣고 여기 한 줄을 추가한다 (위가 최신).
+   sprint는 다음 스프린트로 넘어가기 전까지 같은 번호를 쓴다 */
 const VERSIONS=[
-  {v:"3.6", date:"2026-11-02", file:"v/3.6.html", note:"화면 41개"},
-  {v:"3.4", date:"2026-11-01", file:"v/3.4.html", note:"화면 35개"}
+  {v:"3.6", sprint:2, date:"2026-11-02", file:"v/3.6.html", note:"화면 41개"},
+  {v:"3.4", sprint:2, date:"2026-11-01", file:"v/3.4.html", note:"화면 35개"}
 ];
 
 const $=s=>document.querySelector(s);
 const store={get:k=>{try{return localStorage.getItem(k);}catch(_){return null;}},set:(k,v)=>{try{localStorage.setItem(k,v);}catch(_){}}};
 const narrow=()=>matchMedia("(max-width:760px)").matches;
-const DOW="일월화수목금토";
-const fmtDate=d=>{const t=new Date(d+"T00:00:00");return `${t.getFullYear()}년 ${t.getMonth()+1}월 ${t.getDate()}일 (${DOW[t.getDay()]})`;};
 const short=d=>d.replace(/-/g,".");
-const latest=VERSIONS[0].v;
-let by=store.get("knewit.by")==="date"?"date":"ver", cur=null;
+const latest=VERSIONS[0].v, curSprint=Math.max(...VERSIONS.map(x=>x.sprint));
+let by=store.get("knewit.by")==="sprint"?"sprint":"ver", cur=null;
 
 function item(x,showDate){
   return `<button class="item" data-v="${x.v}"${x.v===cur?' aria-current="page"':""}>
@@ -126,8 +127,11 @@ function renderList(){
     html=[...VERSIONS].sort((a,b)=>b.v.localeCompare(a.v,undefined,{numeric:true})).map(x=>item(x,true)).join("");
   }else{
     const groups={};
-    VERSIONS.forEach(x=>(groups[x.date]=groups[x.date]||[]).push(x));
-    html=Object.keys(groups).sort().reverse().map(d=>`<div class="grp">${fmtDate(d)}</div>`+groups[d].map(x=>item(x,false)).join("")).join("");
+    VERSIONS.forEach(x=>(groups[x.sprint]=groups[x.sprint]||[]).push(x));
+    html=Object.keys(groups).map(Number).sort((a,b)=>b-a).map(n=>{
+      const vs=groups[n], ds=vs.map(x=>x.date).sort(), span=ds[0]===ds[ds.length-1]?short(ds[0]):`${short(ds[0])} – ${short(ds[ds.length-1]).slice(5)}`;
+      return `<div class="grp">스프린트 ${n}${n===curSprint?" · 진행 중":""}<span>${span}</span></div>`+vs.map(x=>item(x,true)).join("");
+    }).join("");
   }
   $("#list").innerHTML=html;
   $("#count").textContent=`버전 ${VERSIONS.length}개`;
