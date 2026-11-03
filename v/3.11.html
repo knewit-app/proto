@@ -1509,7 +1509,10 @@ input,textarea{caret-color:var(--new)}
 .phone .soont{min-height:42px}                      /* 준비 중 타일: 행 간격 48 → 누름 영역 44가 겹치지 않음 (한 화면 기준 안) */
 .phone .soont small{font-size:var(--t-c2)}           /* Caption 2 · 11pt 바닥 */
 .phone .ptags{row-gap:10px}
-.phone .igroup>.ydrow{padding-top:12px;padding-bottom:14px}   /* 어제 간 곳 행 — 두 줄 + 칩 묶음이라 위아래 여백이 필요 */
+.phone .igroup>.ydrow{padding-top:12px;padding-bottom:14px}
+.phone .rqrow .rq-scope{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 14px;background:var(--fill);color:var(--tint);font-size:var(--t-sub);font-weight:500;white-space:nowrap}   /* iOS 작은 캡슐 버튼 */
+.phone .rqrow .rq-scope::after{inset:-5px -2px}
+   /* 어제 간 곳 행 — 두 줄 + 칩 묶음이라 위아래 여백이 필요 */
 .phone .picknote{background:rgba(255,149,0,.14);color:#8A4B00;font-weight:500}   /* 주의 안내 — 입력칸(회색 면)과 구분되는 시스템 주황 (v3.11 추가분) */
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .phone .picknote{background:rgba(255,159,10,.2);color:#FFB340}}
 :root[data-theme="dark"] .phone .picknote{background:rgba(255,159,10,.2);color:#FFB340}
