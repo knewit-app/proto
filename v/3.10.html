@@ -1256,6 +1256,62 @@ input,textarea{caret-color:var(--new)}
 .vfix{margin-left:auto;font-size:var(--t-c1);color:var(--ink-3);min-height:32px;padding:0 0 0 10px;white-space:nowrap}
 .vcount{margin:0 0 4px;font-size:var(--t-fn)}
 .sheet .tall[disabled]{opacity:.5}
+
+/* iOS 시스템 UI 흉내 (v3.10 추가분) — 권한 팝업 · Apple 로그인 시트. 앱 디자인 토큰(브랜드 색 · 라운드 · 글꼴)을 쓰지 않는다 */
+.osdim{position:absolute;inset:0;z-index:60;background:rgba(0,0,0,.22);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:0;animation:dim .2s ease both}
+.osalert{position:absolute;left:50%;top:50%;width:270px;z-index:61;border-radius:14px;overflow:hidden;transform:translate(-50%,-50%);
+  background:rgba(242,242,242,.88);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo",system-ui,sans-serif;color:#000;text-align:center;animation:osin .22s ease-out both}
+@keyframes osin{from{opacity:0;transform:translate(-50%,-50%) scale(1.15)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.osalert .sbody{padding:0;overflow:visible}
+.osalert .ost{padding:19px 16px 0;font-size:17px;font-weight:600;line-height:22px;letter-spacing:-.4px;margin:0}
+.osalert .oss{padding:3px 16px 16px;font-size:13px;line-height:17px;margin:0;letter-spacing:-.1px}
+.osalert .osmap{position:relative;height:132px;margin:0 16px 16px;border-radius:9px;overflow:hidden;background:#EDE9DF}
+.osalert .osmap svg{display:block;width:100%;height:100%}
+.osalert .osprec{position:absolute;left:8px;top:8px;font:600 12px/1 -apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#007AFF;background:rgba(255,255,255,.94);border-radius:99px;padding:6px 10px;border:0}
+.osalert .osbtn{display:block;width:100%;border:0;border-top:.5px solid rgba(60,60,67,.3);background:transparent;color:#007AFF;font:17px/22px -apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo",system-ui,sans-serif;padding:11px 8px;letter-spacing:-.4px;border-radius:0}
+.osalert .osbtn.b{font-weight:600}
+.osalert .osbtn:active{background:rgba(0,0,0,.07)}
+.sheet.iossheet{z-index:61;background:#F2F2F7;border-radius:10px 10px 0 0;box-shadow:none;max-height:92%;color:#000;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo",system-ui,sans-serif}
+.iossheet .ish{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 4px;flex:none}
+.iossheet .ish b{display:inline-flex;align-items:center;gap:4px;font-size:17px;font-weight:600;letter-spacing:-.4px}
+.iossheet .ish b svg{width:17px;height:17px;margin-top:-3px}
+.iossheet .ix{width:30px;height:30px;border-radius:50%;background:rgba(118,118,128,.12);color:rgba(60,60,67,.6);border:0;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.iossheet .ix svg{width:13px;height:13px}
+.iossheet .sbody{position:relative;padding:0 16px 26px;min-height:250px;overflow-y:auto}
+.iossheet .iapp{width:58px;height:58px;border-radius:13px;margin:4px auto 10px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 .5px rgba(0,0,0,.12)}
+.iossheet .it{font-size:22px;font-weight:700;letter-spacing:.3px;line-height:28px;text-align:center;margin:0 0 4px}
+.iossheet .iid{font-size:13px;color:rgba(60,60,67,.6);text-align:center;margin:0 0 16px}
+.iossheet .ilbl{font-size:13px;color:rgba(60,60,67,.6);margin:0 16px 6px}
+.iossheet .igrp{background:#fff;border-radius:10px;overflow:hidden;margin:0 0 18px}
+.iossheet .irow{display:flex;align-items:center;gap:10px;min-height:46px;padding:6px 16px;border:0;background:#fff;width:100%;text-align:left;font:17px/22px -apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo",system-ui,sans-serif;color:#000;letter-spacing:-.4px;border-radius:0}
+.iossheet .irow+.irow{border-top:.5px solid rgba(60,60,67,.3)}
+.iossheet .irow input{flex:1;min-width:0;border:0;background:transparent;font:inherit;color:#000;outline:none;padding:0}
+.iossheet .irow small{display:block;font-size:13px;line-height:17px;color:rgba(60,60,67,.6);word-break:break-all}
+.iossheet .irow .ick{margin-left:auto;color:#007AFF;font-weight:600;flex:none}
+.iossheet .ibtn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:12px;background:#007AFF;color:#fff;font:600 17px/22px -apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo",system-ui,sans-serif;min-height:50px}
+.iossheet .ibtn svg{width:20px;height:20px}
+.iossheet .ilink{display:block;margin:12px auto 0;border:0;background:none;color:#007AFF;font:15px -apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo",system-ui,sans-serif}
+.iossheet .fid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(242,242,242,.95);z-index:2}
+.iossheet .fidbox{width:100px;height:100px;border-radius:22px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 .5px rgba(0,0,0,.1)}
+.iossheet .fidbox svg{width:58px;height:58px}
+.iossheet .fid.scan .fidbox svg{animation:fidpulse .9s ease-in-out infinite}
+@keyframes fidpulse{50%{transform:scale(.88);opacity:.55}}
+.iossheet .fid.ok .fidbox svg{color:#34C759}
+.iossheet .fid.fail .fidbox{animation:fidshake .45s ease both}
+@keyframes fidshake{0%,100%{transform:translateX(0)}20%{transform:translateX(-11px)}40%{transform:translateX(10px)}60%{transform:translateX(-7px)}80%{transform:translateX(4px)}}
+.iossheet .fidt{font-size:15px;margin:0}
+.iossheet .fidacts{display:flex;gap:10px}
+.iossheet .fidacts button{border:0;border-radius:10px;background:rgba(118,118,128,.12);color:#007AFF;font:15px -apple-system,BlinkMacSystemFont,system-ui,sans-serif;padding:10px 16px}
+.iossheet .ipin{text-align:center;padding-top:4px}
+.iossheet .pdots{display:flex;gap:14px;justify-content:center;margin:10px 0 18px}
+.iossheet .pdots i{width:13px;height:13px;border-radius:50%;border:1.5px solid #000}
+.iossheet .pdots i.on{background:#000}
+.iossheet .pkeys{display:grid;grid-template-columns:repeat(3,64px);gap:12px 24px;justify-content:center}
+.iossheet .pkeys button{width:64px;height:64px;border-radius:50%;border:0;background:rgba(118,118,128,.16);font:400 28px/1 -apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#000;padding:0}
+.iossheet .pkeys button.blank{background:none;font-size:15px;color:#007AFF}
+@media (prefers-reduced-motion:reduce){.osalert,.osdim,.iossheet .fid .fidbox,.iossheet .fid .fidbox svg{animation:none}}
 </style>
 </head>
 <body>
@@ -1301,6 +1357,10 @@ input,textarea{caret-color:var(--new)}
         <div class="modebar">
           <div class="mrow"><span class="mlbl">진입</span><div class="mseg" id="entryseg"></div></div>
           <div class="mrow"><span class="mlbl">이용 모드</span><div class="mseg" id="modeseg"></div></div>
+          <div class="mrow"><span class="mlbl">위치 권한</span><div class="mseg" id="oslocseg"></div></div>
+          <div class="mrow"><span class="mlbl">알림 권한</span><div class="mseg" id="osnotiseg"></div></div>
+          <div class="mrow"><span class="mlbl">로그인</span><div class="mseg" id="acctseg"></div></div>
+          <div class="mrow"><span class="mlbl">Face ID</span><div class="mseg" id="faceseg"></div></div>
         </div>
         <div class="navbody" id="navbody"></div>
       </section>
@@ -1484,6 +1544,7 @@ function attrHit(p,k){
 
 /* ═══════════ v3.8 기본안 (팀 확정 전) — 바꾸기 쉽게 여기 한곳에 모은다 ═══════════ */
 const POLICY={
+  signupTtlHours:24,                  // 약관 동의를 마치지 않은 가입은 24시간 뒤 소셜 계정 정보 · 세션 파기 (v3.10 추가분, 기본안)
   ruleKey:(card,mid)=>card+"|"+mid,   // K1 가게 판정 규칙의 키 = 카드사별 가맹점번호
                                       //    방문 확인에서 고르면 그 결제의 가맹점, 장소 상세에서 고르면 그 장소에 연결된 내 가맹점 전부
   pgAutoMap:false,                    // K1 간편결제 · PG 가맹점은 자동 매핑 · 규칙 없이 매번 묻는다
@@ -1582,7 +1643,7 @@ function recoList(recos,linked){
     return `<button class="recorow${fr?" fresh":""}"${fr?` style="--i:${i-S.freshFrom}"`:""} data-act="place" data-v="${r.p.id}">
       <span class="rk">${i+1}</span>
       <span class="rb"><span class="rn"><b>${esc(r.p.name)}</b><small>${r.p.cat}</small>${badge}</span><i>${r.why.text}</i></span>
-      <em>${meDist(r.p)<=1500?`도보 ${walkMin(meDist(r.p))}분`:AREAS[r.p.area].name}</em></button>`;
+      <em>${precise()&&meDist(r.p)<=1500?`도보 ${walkMin(meDist(r.p))}분`:AREAS[r.p.area].name}</em></button>`;
   }).join("");
 }
 function bothVisited(f){ return visibleFriendPlaces(f).filter(x=>x.n>=FRIEND_MIN&&visitOf(x.p.id)).map(x=>x.p); }
@@ -1645,7 +1706,7 @@ const API={
     if(state==="friend") return {status:200,redirect:"friend",friend:FRIENDS[0]&&FRIENDS[0].id};
     return {status:200,profile:{...owner,actions:state==="guest"?["signup"]:["friend_request"]}}; },
   profileLink(viewer){   // 비친구에게는 이름 · 사진 · 친구 요청만 — 장소 · 취향 필드는 응답에 넣지 않는다
-    const base={name:"김겨레",photo:null,initial:"겨",actions:["friend_request"]};
+    const base={name:meName(),photo:null,initial:meIni(),actions:["friend_request"]};
     if(viewer!=="friend") return {status:200,profile:base};
     return {status:200,profile:{...base,actions:[],places:this.myPlacesForFriend().places,taste:taste().cats.slice(0,3).map(c=>c.k)}};
   }
@@ -1749,11 +1810,11 @@ function friendLayerPlaces(){
 }
 
 const SCREENS={
-  "S-ONB-01":{n:"서비스 소개 · 로그인",fn:["FN-ON-010", "FN-ON-020"],note:"<b>로그인은 온보딩 전체에서 이 화면 한 번뿐</b>입니다. 경로 선택은 로그인 뒤 카드사 선택 화면으로 옮겨, 구경하려는 사람이 카카오·Apple 버튼을 두 번 보지 않게 했습니다. <b>진입에 따라 첫 화면이 다릅니다</b> — 직접 설치는 서비스 소개가, 초대 링크는 초대한 친구가 먼저 보입니다. 상단 툴바의 ‘직접 설치 / 초대 링크 시작으로 건너뛰기’로 두 진입을 따로 확인할 수 있습니다."},
-  "S-ONB-02":{n:"약관 동의 (서비스 공통)",fn:["FN-ON-030", "FN-SE-080"],note:"<b>모든 사용자에게 필요한 동의만</b> 받습니다 — 서비스 약관(필수)과 위치(선택). 결제내역 조회는 여기서 받지 않습니다. 선택으로 두면 동의하지 않은 사람은 어차피 연결할 수 없어 의미가 없고, 필수로 두면 둘러보기만 할 사람에게 필요 없는 수집을 강요하게 됩니다(개인정보보호법 제16조 3항). 그래서 결제 관련 동의는 <b>카드 연결 흐름 안의 별도 시트(S-ONB-03a)</b>로 분리했습니다."},
+  "S-ONB-01":{n:"서비스 소개 · 로그인",fn:["FN-ON-010", "FN-ON-020"],note:"<b>로그인은 온보딩 전체에서 이 화면 한 번뿐</b>입니다. Apple은 iOS 시스템 시트(S-ONB-01a)를 거칩니다. <b>기존 회원</b>(로그아웃 · 로그인 만료 뒤)은 약관을 건너뛰고 원래 있던 곳으로 돌아갑니다(v3.10 추가분). 경로 선택은 로그인 뒤 카드사 선택 화면으로 옮겨, 구경하려는 사람이 카카오·Apple 버튼을 두 번 보지 않게 했습니다. <b>진입에 따라 첫 화면이 다릅니다</b> — 직접 설치는 서비스 소개가, 초대 링크는 초대한 친구가 먼저 보입니다. 상단 툴바의 ‘직접 설치 / 초대 링크 시작으로 건너뛰기’로 두 진입을 따로 확인할 수 있습니다."},
+  "S-ONB-02":{n:"약관 동의 (서비스 공통)",fn:["FN-ON-030", "FN-SE-080", "COM-03"],note:"<b>모든 사용자에게 필요한 동의만</b> 받습니다 — 만 14세 이상 확인 · 서비스 약관(필수)과 광고 알림(선택). <b>위치 약관은 지도에 처음 들어갈 때 S-HOME-01b에서 한 번</b> 받습니다. 만 14세 미만은 가입할 수 없다는 안내만 두고, 약관 동의를 마치지 않은 가입은 24시간(<code>POLICY.signupTtlHours</code>) 뒤 소셜 계정 정보 · 세션을 자동으로 지웁니다. ‘다음’을 누르면 권한 안내 시트 없이 바로 카드사 선택으로 갑니다(v3.10 추가분). 결제내역 조회는 여기서 받지 않습니다. 선택으로 두면 동의하지 않은 사람은 어차피 연결할 수 없어 의미가 없고, 필수로 두면 둘러보기만 할 사람에게 필요 없는 수집을 강요하게 됩니다(개인정보보호법 제16조 3항). 그래서 결제 관련 동의는 <b>카드 연결 흐름 안의 별도 시트(S-ONB-03a)</b>로 분리했습니다."},
   "S-ONB-03":{n:"카드사 선택",fn:["FN-ON-040", "FN-ON-090", "FN-ON-045"],note:"<b>‘다음’을 누르면 카드 연결 동의 시트(S-ONB-03a)</b>가 뜹니다. 결제내역 조회는 이 기능에 반드시 필요하므로 <b>시트 안에서는 필수</b>, 금액 수집만 선택입니다. 동의를 카드사 로그인 화면과 분리한 건 Plaid의 연결 흐름과 같은 순서입니다 — 데이터 권한 동의를 먼저 받고, 그 다음에 금융기관 로그인으로 넘어갑니다. 한 번 동의하면 다음부터는 시트 없이 바로 넘어갑니다. <b>경로가 갈라지는 화면</b>입니다. 둘러보기 선택지는 <b>‘다음’ 버튼 바로 위</b>에 텍스트 버튼으로 둡니다 — 카드사를 고르다 막힌 사람의 시선이 머무는 자리이고, 주 행동(다음)의 무게는 그대로 유지됩니다. 문구만 진입에 따라 달라집니다: 직접 설치는 ‘나중에 연결하고 둘러보기’, 초대로 온 사람은 ‘지수님 지도 먼저 둘러보기’. 구경으로 빠져도 이 화면을 한 번 본 상태라, 나중에 연결 제안을 받을 때 무엇이 필요한지 이미 압니다. CODEF 개인카드 승인내역 API 문서 기준으로 <b>문제가 확인되지 않은 6곳만</b> 우선 엽니다. 제외 사유 — <b>현대</b>: 아이디 로그인에 카드 비밀번호 인증 추가(25.10.30), 3회 오류 시 계정 잠김, 조회 3개월. <b>우리·제주</b>: 가맹점 정보 미제공이라 장소 매칭 불가. <b>씨티</b>: 아이디 로그인 시 SMS 추가 인증. <b>NH농협·수협·광주·전북</b>: 가맹점 정보 경로·필드가 달라 실측 후 추가. 포함 카드사 중 <b>신한</b>은 BC 로고가 있는 신한 체크카드만 가맹점 정보를 주지 않아, 선택 시 경고를 붙입니다. 로그인에 <b>생년월일은 받지 않습니다</b> — CODEF 카드 파라미터 시트상 생년월일은 우리카드(잠금 직전)와 인증서 자동등록에만 필요합니다. 비밀번호 오류 횟수는 삼성·신한·롯데만 CODEF가 알려줘서(userError, 5회 잠금) 그 셋은 횟수를 보여주고, KB·하나·BC는 알 수 없으니 2번째에서 멈춥니다. 하나·신한은 3개월 단위로 나눠 조회해 첫 불러오기에 구간을 표시하고, 삼성·신한은 결제 시각이 빠질 수 있어(resUsedTime △) 시간대 취향 계산에서 빠질 수 있습니다. KB·NH·수협·현대는 가맹점 옵션 '1'로는 주소·업종이 빠질 수 있어 서버에서 '3'(매출전표 포함)으로 조회해야 합니다. 오른쪽 기간은 카드사별 <b>조회 가능 기간</b>이고 첫 방문 요약의 범위가 됩니다. 준비 중 카드사의 ‘알림 받기’ 수는 다음 지원 카드사 우선순위로 씁니다. <b>v3.9.2: 한 화면</b> — 기준 기기(iPhone SE 375×667) 기본 글자 크기에서 스크롤 없이 보입니다. 카드사는 2열 타일이고 <b>누르면 바로</b> 동의 시트(처음) 또는 로그인으로 갑니다. ‘다음’ 버튼은 없앴습니다. 각주는 ‘본인 명의 개인카드만 · 준비 중인 카드사’ 한 줄이고, 신한 경고는 로그인 화면으로 옮겼습니다."},
   "S-ONB-04":{n:"카드사 홈페이지 로그인",fn:["FN-ON-045", "FN-ON-041", "FN-ON-042", "FN-ON-043"],note:"마찰이 가장 큰 화면이라 다섯 가지를 겁니다. ⓪이 화면에는 <b>동의 항목을 두지 않습니다</b>(S-ONB-03a에서 받음) — 입력과 아이디 찾기에만 집중하고, 끝까지 막히면 ‘나중에 연결할게요’로 앱을 떠나지 않고 구경 모드로 들어갑니다. ①제목과 부제에서 <b>앱 간편 비밀번호가 아니라 홈페이지 아이디</b>임을 먼저 말합니다 — 앱만 써온 사람이 가장 많이 헷갈리는 지점입니다. ②입력칸 <b>바로 아래</b>에 카드사 공식 아이디 찾기·회원가입 페이지를 겁니다(운영에서는 SFSafariViewController로 열어 재설정한 비밀번호가 키체인에 저장되게 합니다). 삼성·롯데·하나·신한·BC의 회원가입은 로그인·메인 화면을 거치므로 실기기에서 경로를 확인해야 합니다. ③입력칸은 <code>autocomplete=username / current-password</code> — iOS의 <code>textContentType</code>에 해당해 저장된 비밀번호를 한 번에 채웁니다. ④<b>2회 실패하면 연결 버튼을 막고 재설정으로 보냅니다</b>. 카드사는 비밀번호 연속 오류 시 계정을 잠그고(하나·BC 5회), KNEWIT 때문에 카드사 계정이 잠기면 신뢰가 무너집니다. KB의 카드소지확인은 해당 오류가 올 때만 카드번호를 추가로 묻습니다. <b>비밀번호에 1234를 넣으면</b> 실패 흐름을 볼 수 있습니다. v3.10: 새 카드사를 연결하면 그 카드사만 활성으로 두고, 다른 카드사의 멈춤은 그대로 둡니다(UC-46). <b>v3.9.2: 한 화면</b> — 신뢰 문구는 ‘조회만 해요 · 비밀번호는 저장하지 않아요’ 한 줄, 나머지는 ‘자세히’ 시트로 옮겼습니다. ‘홈페이지 아이디’ 안내는 아이디 칸 라벨에 붙입니다. 입력 중(키보드)에는 제목이 한 줄로 줄고 신뢰 문구가 숨어 입력칸과 연결하기가 함께 보입니다. 큰 글자에서는 스크롤을 허용하되 연결하기는 아래에 붙어 있습니다."},
-  "S-ONB-05":{n:"방문 내역 불러오기",fn:["FN-ON-060"],note:"수집 → 장소성 분류 → 매칭 → 신뢰도 분기가 이 화면 뒤에서 순서대로 돕니다. 좌표를 확보하지 못한 건은 기록으로는 남지만 추천에는 들어가지 못합니다."},
+  "S-ONB-05":{n:"방문 내역 불러오기",fn:["FN-ON-060", "FN-ON-031"],note:"‘다 되면 알림 받기’ 위에 알림을 쓰는 이유와 거부할 수 있다는 것을 한 줄로 알리고, 누르면 iOS 알림 권한 팝업(OS-NOTI)을 띄웁니다(정보통신망법 제22조의2 첫 사용 시점 고지). 수집 → 장소성 분류 → 매칭 → 신뢰도 분기가 이 화면 뒤에서 순서대로 돕니다. 좌표를 확보하지 못한 건은 기록으로는 남지만 추천에는 들어가지 못합니다."},
   "S-ONB-06":{n:"첫 방문 요약",fn:["FN-ON-080"],note:"TASTE 화면(FN-TA-010)과 <b>같은 집계 로직</b>을 씁니다. 두 화면 수치가 다르면 설명 신뢰가 먼저 무너집니다."},
   "S-HOME-01":{n:"홈",fn:["FN-SY-080", "FN-RE-040", "FN-RE-010", "FN-RE-080", "FN-RE-110", "FN-RE-090", "FN-RE-100", "FN-RE-150", "FN-FR-060"],note:"<b>구경 모드(카드 미연결)</b>에서는 친구가 있으면 친구 세그먼트로, 없으면 추천 세그먼트로 열립니다 — 빈 탭으로 시작하지 않습니다. 구경 모드는 <b>친구 수에 따라 두 상태</b>로 나뉩니다. ①<b>친구 없음</b>(직접 설치 후 둘러보기로 막 들어온 상태): 친구 탭은 ‘아직 친구가 없어요 + 친구 추가하기’만, 추천은 시간대·거리만으로 계산하고, 장소 상세·내 취향·친구 목록에서도 친구 흔적을 모두 뺍니다. ②<b>친구 추가 후</b>(카드는 미연결): 친구 목록 위에 ‘나도 가본 곳이 있을까요?’ 연결 제안이 붙고, 추천에 친구 반복 방문 신호가 더해집니다. 초대 링크로 들어오면 처음부터 ②이고 초대한 친구의 레이어가 켜진 채로 시작합니다. 툴바의 두 ‘구경’ 버튼으로 각각 확인할 수 있습니다. <b>추천 세그먼트는 비워두지 않습니다</b> — 내 기록이 없어도 <b>지금 시간대 인기(외부 데이터) · 거리 · 친구 반복 방문</b>만으로 주변 3곳을 고르고(취향 신호 0, 프랜차이즈 감점), 목록 위에 ‘카드를 연결하면 더 잘 맞춰드려요’를 붙입니다. 빈 화면으로 연결을 요구하는 것보다, 쓸 만한 결과를 먼저 주고 “연결하면 이게 나아진다”를 말하는 쪽이 설득력이 있습니다. NEW/KNEW 배지와 색은 방문 기록이 있어야 의미가 있으므로 이 목록에서는 무채색으로 둡니다. 친구 목록 맨 위의 ‘나도 가본 곳이 있을까요?’는 친구 기록을 보는 바로 그 순간에 연결 이유를 말하는 자리입니다. 구조가 <b>지도 캔버스 + 플로팅 필터 + 결과 시트</b>로 바뀌었습니다. 필터는 가로 스크롤 한 줄이라 <b>늘어나도 세로 공간을 먹지 않고</b>, 추천 3곳은 바텀시트(끌어올리면 전체)와 번호 핀으로 같은 것을 두 번 말합니다. NEW/KNEW는 탭이 아니라 <b>장소의 속성</b>입니다 — 기본은 두 풀을 섞어 랭킹하고(신호 수가 달라 평균 정규화, 한쪽 쏠림이면 3번째를 반대 풀로 교체), 핀 색·배지가 구분을 맡으며, ‘처음 가는 곳만/다시 갈 곳만’ 칩은 원할 때만 쓰는 렌즈입니다. 카페의 목적 칩(작업·조용·디저트)은 후보를 거르지 않는 <b>랭킹 신호</b>입니다(장소속성 PoC 데이터, 커버리지 부분적). 카테고리는 <b>전체 · 카페 · 식당</b> 셋뿐입니다 — 추천 대상은 카페와 식당으로 한정하고, 술집·상점 결제는 기록과 취향 계산에는 남지만 추천 후보로는 올리지 않습니다. 컨트롤은 <b>빈도에 따라 층을 나눕니다</b>. 지도 위에는 매번 바꾸는 <b>카테고리</b>만 두고, 가끔 바꾸는 <b>동네·세부 조건</b>은 시트를 올려야 나옵니다 — 진입 화면에서 보이는 컨트롤이 적을수록 첫 화면이 답(추천)에 집중합니다. 접힌 상태에서도 시트 헤더가 “연남동 · 오후 · 조건 2”로 현재 기준을 항상 알려주므로, 숨겼다고 상태가 사라지지는 않습니다. 친구는 <b>사람 단위 레이어</b>입니다 — 친구 세그먼트 위의 <b>사람 칩</b>(지도 마커와 같은 색)이나 친구 프로필의 ‘지도에서 보기’로 그 사람의 장소만 겹칩니다. 지금 동네에 그 친구 기록이 없으면 그 친구가 가장 많이 간 동네로 지도를 옮깁니다. 친구 방문은 숫자 대신 ‘단골·가봤어요’로만 말합니다. 무채색 점은 나머지 후보 풀 — 추천이 어디서 나왔는지 맥락을 줍니다. 지도는 <b>휠·드래그·핀치·버튼으로 실제 확대/축소</b>가 되고, 핀 크기는 배율과 무관하게 유지하며 축소 시 라벨을 접습니다. <b>NEW/KNEW 필터 칩은 없앴습니다</b> — 마커 색과 배지가 이미 구분을 전달하는데 칩까지 두면 같은 정보를 세 번 말하게 되고, 통합 랭킹이 두 종류를 섞어주므로 평소에는 거를 이유도 없습니다. 굳이 한쪽만 보고 싶을 때는 <b>범례를 눌러</b> 거릅니다(범례가 곧 컨트롤). <b>친구 레이어</b>는 탭이 아니라 필터 줄의 토글입니다 — 친구 신호가 필요한 순간은 “지금 어디 갈까”를 결정하는 이 화면이지 별도 탭이 아니기 때문입니다. 레이어는 친구의 <b>공개 범위</b>(FN-SE-020)와 <b>반복 방문만 신호로 쓰는 규칙</b>(COM-08)을 그대로 따릅니다."},
   "S-HOME-02":{n:"세부 조건",fn:["FN-RE-030"],note:"와이어프레임의 <b>☰ 필터</b>를 그대로 옮긴 시트입니다. 두 가지가 설계의 핵심입니다. ①<b>‘지금 영업중’과 시간대 인기는 외부 장소 데이터</b>에서 가져옵니다(출처 확정 전). 사용자 결제를 모아 추정하지 않습니다. ②<b>‘정보 없음’과 ‘조건 불일치’를 구분</b>합니다. 속성은 공개 글에서 추출한 것이라 커버리지가 부분적이므로, 기본값은 미확인 장소를 남겨두고 확인된 장소를 위로 올리며(랭킹 신호 ‘조건 부합’), 엄격 모드를 켤 때만 미확인을 제외합니다. 이 구분이 없으면 데이터가 적은 초기에 필터를 켤수록 결과가 0이 됩니다. v3.8: 조건 이름이 시간대 칩을 따라갑니다 — 현재 시간대면 ‘지금 영업중’(기기 시각), 다른 시간대를 고르면 ‘OO에 영업중’(그 시간대 대표 시각). 영업 정보가 없는 곳은 기본으로 빼고 결과 위에서 ‘포함하기’로 되돌립니다."},
@@ -1770,6 +1831,10 @@ const SCREENS={
   "S-MY-05":{n:"설정",fn:["FN-SY-100", "FN-RE-150", "FN-SE-010", "FN-SE-020", "FN-SE-030", "FN-SE-040", "FN-FR-032", "FN-SE-050", "FN-SE-060", "FN-SE-070", "FN-SE-080"],note:"설정은 탭이 아니라 <b>마이 안의 톱니 아이콘</b>으로 들어옵니다 — 설정은 하루에 한 번도 안 여는 화면이라 탭 하나를 상시 점유할 근거가 없고, 마이의 주 콘텐츠는 ‘내 취향’ 하나로 좁아집니다. <b>친구</b>는 두 자리로 나뉩니다 — 보기는 홈 친구 세그먼트, 관리(목록·추가·요청)는 프로필 → 친구입니다. <b>친구 공개 범위</b>를 바꿔보세요. 친구가 보게 될 내 장소 수가 바로 바뀝니다. v3.8: 카드 영역은 카드사별 묶음마다 <b>멈추기 · 재인증 · 연결 해제</b>를 두고, ‘카드사 추가’만 공통으로 남깁니다. ‘친구에게서 숨긴 장소’는 방문한 모든 장소를 보여 주고 행마다 상태(친구에게 보여요 / 아직 안 보여요 · 3번 가면 보여요)를 적습니다 — 미리 숨긴 곳은 3번째 방문 뒤에도 보이지 않습니다. 3회 판정은 최근 6개월 횟수입니다(K3)."},
   "S-CMN-01":{n:"빈 상태 · 오류",fn:["FN-SY-100", "FN-ER-010", "FN-ER-030", "FN-ER-040", "FN-ER-050", "FN-ER-060", "FN-ER-070", "FN-ER-080", "FN-SE-120"],note:"빈 상태는 원인을 구분해 안내합니다. 카드 미연결 / 동기화 미완료 / 실제 데이터 없음은 서로 다른 화면입니다."},
   "S-ONB-03a":{n:"카드 연결 동의 [BS]",fn:["FN-ON-050", "FN-SE-080"],note:"S-ONB-03의 ‘다음’에서 결제내역 조회 동의가 없을 때만 뜨는 바텀시트입니다. 결제내역 조회만 받고(결제 금액은 받지 않음), 한 번 동의하면 다음부터 건너뜁니다. 체크를 바꿔도 시트를 다시 띄우지 않고 내용만 갱신합니다."},
+  "S-HOME-01b":{n:"위치 사용 [BS]",fn:["FN-SE-030","FN-RE-040","COM-03","COM-19"],note:"<b>지도에 처음 들어갈 때 한 번</b> 위치를 쓰는 이유와 위치기반서비스 이용약관 동의를 받습니다. ‘동의하고 위치 쓰기’는 동의 일시를 남기고 iOS 위치 권한 팝업(OS-LOC)으로 이어지고, 허용하면 현재 위치, 거부하면 동네 선택(S-HOME-01a)입니다. ‘동네 직접 고르기’는 약관 미동의 그대로입니다. 설정 › 위치기반서비스를 끄면 동의 철회, 다시 켤 때 이 시트가 다시 뜹니다. 약관이 없으면 iOS 권한이 있어도 좌표를 서버로 보내지 않습니다."},
+  "S-ONB-01a":{n:"Apple 로그인 [OS]",fn:["FN-ON-010","FN-SE-040","FN-ER-080"],note:"Sign in with Apple 시스템 시트 흉내. <b>처음 가입</b>은 이름(편집 가능)과 이메일 공유 · 가리기를 고르고, <b>기존 회원</b>은 ‘Face ID로 계속’만 보입니다. Apple은 이름 · 이메일을 처음 가입할 때 한 번만 주므로 서버가 그때 저장합니다. 이름은 프로필 이름과 아바타 이니셜(COM-12)의 기본값, 이메일 가리기는 설정 › 계정에 privaterelay 주소로 보입니다. Face ID는 Apple 시트 안의 시스템 인증이라 앱이 NSFaceIDUsageDescription을 묻지 않습니다(앱 잠금 없음, D-18). 시트를 닫으면(취소) 오류 없이 이 화면에 그대로 있습니다."},
+  "OS-LOC":{n:"iOS 위치 권한 [OS]",fn:["FN-ON-031","FN-SE-030"],note:"iOS 17 위치 권한 팝업 흉내 — 부제는 Info.plist 목적 문구. <b>아직 안 물음일 때만</b> 뜨고, 거부 뒤에는 앱 시트로 설정을 안내합니다. ‘정확한 위치’를 끄고 허용하면 대략적 위치: 동네 기준으로만 추천하고 도보 시간 대신 동네명, 헤더에 ‘대략적인 위치로 찾았어요’. 한 번 허용은 인스펙터 ‘앱 다시 열기’로 아직 안 물음이 됩니다."},
+  "OS-NOTI":{n:"iOS 알림 권한 [OS]",fn:["FN-ON-031","FN-SE-050"],note:"iOS 알림 권한 팝업 흉내. S-ONB-05 ‘다 되면 알림 받기’와 설정의 알림 켜기가 같은 규칙을 씁니다 — 아직 안 물음이면 이 팝업, 거부면 ‘설정에서 알림을 허용해 주세요’ 시트, 허용이면 바로 켬."},
   "S-HOME-01a":{n:"동네 선택 [BS]",fn:["FN-RE-040"],note:"추천 시트의 <b>동네</b> 버튼으로 엽니다. 위치 권한이 없는 사람이 기준 위치를 고르는 자리라, ‘동네를 직접 골라요’ 안내(위치 약관 · 권한 안내 · 설정)가 모두 여기로 이어집니다. 서비스 범위는 <b>서울 전역</b>이라 목록은 바로가기일 뿐이고, 서울 안이면 지도를 옮겨 어디서든 다시 찾을 수 있습니다. 서울 밖에서 다시 찾기를 누르면 ‘지금은 서울에서만 추천해요’를 알립니다."},
   "S-PLC-01c":{n:"카카오톡 같이 가자 [BS]",fn:["FN-PL-090"],note:"같이 가자는 KNEWIT 안의 메시지가 아니라 <b>카카오톡 공유</b>입니다. 장소명 · 유형 · 동네와 보낸 사람이 담긴 OG 카드로 가고, 받는 사람이 KNEWIT 친구일 필요가 없습니다. 링크는 앱이 있으면 장소 상세, 없으면 웹 미리보기 → 설치로 이어집니다."},
   "S-PLC-01b":{n:"방문 기록 고치기 [BS]",fn:["FN-PL-040"],note:"장소 상세 방문 목록의 <b>각 행</b>에 있는 ‘기록이 틀렸나요?’에서 엽니다. 고치는 단위는 <b>방문 1건</b>(30분 병합 단위)입니다(K2). ‘다른 장소였어요’는 그 1건만 고른 장소로 옮겨 원래 장소 -1 · 새 장소 +1이 되고, ‘여기 간 적 없어요’는 그 1건만 빼고 범위 선택 시트(S-HOME-04b)로 갑니다. 남은 방문이 0건이면 내 방문 기록 영역이 ‘아직 안 가본 곳이에요’로 바뀝니다. 고친 판정은 <b>그 장소에 연결된 내 가맹점 전부</b>(카드사별 가맹점번호, K1)의 다음 결제에 적용하고, 간편결제 · PG 결제는 규칙 없이 매번 묻습니다. 토스트의 되돌리기는 방문과 그 동작이 만든 규칙을 함께 되돌립니다. (v3.8, K1~K2는 팀 확정 전 기본안)"},
@@ -1777,7 +1842,6 @@ const SCREENS={
   "S-PLC-01a":{n:"저장할 목록 [BS]",fn:["FN-PL-050"],note:"별을 누르면 <b>마지막에 쓴 목록</b>에 바로 저장하고, 토스트의 ‘목록 변경’으로 이 시트를 엽니다. 목록을 고르면 옮기고, 새 목록을 만들면 그 목록에 넣습니다. 매번 목록을 묻지 않는 것은 저장을 한 번의 탭으로 끝내기 위해서입니다."},
   "S-MY-05a":{n:"로그아웃 확인 [BS]",fn:["FN-SE-040"],note:"로그아웃하면 이 기기의 로그인 정보 · 최근 검색 · 알림 수신 등록을 지웁니다. 카드 연결과 기록은 계정에 남아, 다시 로그인하면 그대로 이어집니다."},
   "S-MY-05b":{n:"회원탈퇴 확인 [BS]",fn:["FN-SE-040"],note:"소셜 로그인 연결 해제(Apple 토큰 폐기)와 법정 보관 기록의 파기 시점을 함께 알립니다."},
-  "S-ONB-02a":{n:"앱 접근 권한 안내 [BS]",fn:["FN-ON-031"],note:"정보통신망법 제22조의2 — iOS 권한 창을 띄우기 전에 앱이 쓰는 권한과 이유, 모두 선택 권한이라는 것을 먼저 알립니다. 실제 iOS 권한 창은 그 기능을 처음 쓸 때 띄웁니다(위치는 지도, 알림은 첫 불러오기 화면의 ‘다 되면 알림 받기’). 광고 알림에 동의했으면 확인 뒤 동의 일시를 토스트로 알립니다(제50조 처리 결과 통지)."},
   "S-MY-03a":{n:"차단 확인 [BS]",fn:["FN-FR-032"],note:"App Store 심사지침 1.2 — 사용자 간 콘텐츠가 있는 앱은 차단 수단이 필요합니다. 차단하면 친구가 끊기고 서로 보이지 않으며, 설정에서 풀 수 있습니다."},
   "S-MY-03b":{n:"신고 [BS]",fn:["FN-FR-033"],note:"App Store 심사지침 1.2 — 신고 수단과 시기적절한 대응(24시간)이 필요합니다. 신고하면서 차단하기가 기본으로 켜져 있습니다."},
   "S-ONB-04a":{n:"KB 카드소지확인 [BS]",fn:["FN-ON-044"],note:"CODEF 승인내역 API 기준 — KB국민카드는 가끔 카드소지확인 페이지로 넘어가며(CF-12108), 이때 카드번호 전체와 카드 비밀번호 앞 2자리를 넣어야 조회됩니다. 그 오류가 올 때만 띄웁니다(프로토타입에서는 KB국민카드에 비밀번호 0000). 입력은 다시 그리지 않고 버튼 상태만 바꿔 키패드가 닫히지 않게 합니다. 카드 비밀번호 일부는 전자금융거래법상 접근매체에 해당할 가능성이 커서 법률 검토 대상입니다."},
@@ -1796,8 +1860,13 @@ const SCREENS={
   "S-PLS-01a":{n:"정렬 [POP]",fn:["FN-PL-051"],note:"내 장소 시트의 정렬 팝오버입니다. 저장 목록 보기에서는 목록 단위(최근 만든 순 · 방문한 장소가 많은 순 · 가까운 장소가 있는 순)로, 장소 보기에서는 장소 단위로 정렬합니다."}
 };
 
+/* 로그인 계정 (v3.10 추가분) — Apple은 이름 · 이메일을 처음 가입할 때 한 번만 준다. 이후 로그인에는 식별자만 온다 */
+const APPLE_EMAIL="gyeore.kim@icloud.com", RELAY_EMAIL="k7qz2m9xw4@privaterelay.appleid.com";
+const ACCT0={provider:"kakao",name:"김겨레",email:"gyeore@kakao.com",hide:false};
 /* ═══════════ 상태 ═══════════ */
 const S={
+  os:{loc:"unasked",noti:"unasked"}, osTouched:false, osPrecise:true,   // iOS 권한 상태 — 위치 5종 · 알림 3종 (v3.10 추가분)
+  acct:{...ACCT0}, appleUser:"new", faceSim:"ok", appleFace:null, applePin:"", appleName:null, appleHide:false, memberKeep:null, sessionBack:null, locPrompted:false, locAt:null,
   screen:"S-ONB-01", tab:"home", area:"yeonnam", areaAuto:true, cat:"전체", mode:"MIX", slot:nowSlot(),
   consent:{req:false,pay:false,loc:false,mkt:false,share:false}, issuer:null,
   linked:false, cards:{}, merchantRules:{}, openIncl:false, notCtx:null, notPick:"once", unlinkCard:null, lastFolder:"fd1", sfname:"", wdAgree:false, toastAct:null, unlinkAsk:false, entry:"organic", noFriends:false, linkFrom:null, idVal:"", pwVal:"", authTry:0, authErr:null, showSoon:false,
@@ -1960,6 +2029,11 @@ function taste(){
 const RADIUS=5;   // 다시 찾기 반경 5단위 ≈ 500m
 const baseXY=()=>S.anchor||{x:AREAS[S.area].ax,y:AREAS[S.area].ay};
 const dist=p=>Math.hypot(gx(p)-baseXY().x,gy(p)-baseXY().y)*100;
+const meName=()=>(S.acct&&S.acct.name)||"김겨레";
+const meIni=()=>{const n=meName().trim(); return /^[가-힣]{3,4}$/.test(n)?n[1]:(n[0]||"?").toUpperCase();};   // COM-12 — 한글 세 글자 이상이면 성을 뺀 첫 글자
+/* 위치를 쓸 수 있는가 — 위치 약관 동의와 iOS 권한이 둘 다 있어야 한다. 하나라도 없으면 좌표를 서버로 보내지 않는다 (v3.10 추가분) */
+const locUsable=()=>S.consent.loc&&["granted","once","approx"].includes(S.os.loc);
+const precise=()=>locUsable()&&S.os.loc!=="approx";
 const meDist=p=>Math.hypot(gx(p),gy(p))*100;   // 내 위치(연남동 중심)에서 잰 거리 — 카드의 도보 시간은 늘 내 위치 기준
 const inSeoul=(x,y)=>x>-60&&x<170&&y>-120&&y<50;   // 프로토타입 지도의 서울 경계 (v3.5: 서비스 범위 = 서울 전역)
 const inBase=p=>S.anchor?(Math.hypot(gx(p)-S.anchor.x,gy(p)-S.anchor.y)<=RADIUS):p.area===S.area;
@@ -2640,7 +2714,7 @@ V["S-ONB-01"]=()=>{
   <ul class="howplain"><li>${IC.pin}카드를 연결하면 다녀온 곳이 자동으로 쌓여요</li><li>${IC.my}친구가 반복해서 가는 곳을 지도에서 봐요</li><li>${IC.star}기록으로 지금 갈 만한 곳 3곳을 추천해요</li></ul>
   <div class="stack onbfoot">
     <button class="cta kakao" data-act="login" data-v="kakao">카카오로 시작하기</button>
-    <button class="cta apple" data-act="login" data-v="apple"><svg class="ic applelogo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.1 5.7c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>Apple로 시작하기</button>
+    <button class="cta apple" data-act="login" data-v="apple" aria-haspopup="dialog"><svg class="ic applelogo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.1 5.7c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>Apple로 시작하기</button>
   </div>
   `;
 };
@@ -2651,22 +2725,20 @@ V["S-ONB-02"]=()=>{
       <span class="ck">${IC.check}</span>
       <span class="ag-t"><em class="${tag==="필수"?"req":"opt"}">${tag}</em>${label}${note?`<i>${note}</i>`:""}</span></button>
       ${k==="age"?"":`<button class="ag-more" data-act="doc" data-v="${({req:"tos",loc:"loc",mkt:"mkt"})[k]}" aria-haspopup="dialog" aria-label="${label} 전문 보기">${IC.chevR}</button>`}</div>`;
-  const all=S.consent.age&&S.consent.req&&S.consent.loc&&S.consent.mkt;
+  const all=S.consent.age&&S.consent.req&&S.consent.mkt;   // 위치 약관은 지도에 처음 들어갈 때 따로 (v3.10 추가분)
   return `${nav("약관 동의","S-ONB-01")}
   <h1 class="h1">동의가 필요해요</h1>
   <button class="agreeall" data-act="consentall" aria-pressed="${all}">
     <span class="ck">${IC.check}</span><b>약관 전체 동의</b></button>
   <div class="agdiv"></div>
   <div>
-    ${row("age","필수","만 14세 이상이에요","")}
+    ${row("age","필수","만 14세 이상이에요","만 14세 미만은 가입할 수 없어요")}
     ${row("req","필수","서비스 이용약관","")}
-    ${row("loc","선택","위치기반서비스 이용약관","없으면 동네를 직접 골라요")}
     ${row("mkt","선택","혜택·이벤트 알림 받기 (광고)","밤 9시~아침 8시에는 따로 동의한 경우에만 보내요")}
   </div>
   <p class="agnote">가입과 서비스에 꼭 필요한 정보는 <button class="inlink" data-act="doc" data-v="privacy" aria-haspopup="dialog">개인정보 처리방침</button>에 따라 처리해요.</p>
-  <button class="textlink" data-act="under14" style="margin:4px 0 0">만 14세 미만이에요</button>
   <div class="stack" style="margin-top:6px">
-    <button class="cta" data-act="sheet" data-v="perms" aria-haspopup="dialog" ${S.consent.req&&S.consent.age?"":"disabled"}>다음</button>
+    <button class="cta" data-act="agreed" ${S.consent.req&&S.consent.age?"":"disabled"}>다음</button>
   </div>`;
 };
 
@@ -2728,7 +2800,7 @@ V["S-ONB-05"]=()=>{
   ${(()=>{const x=issuerOf(S.issuer); if(!x.chunk) return `<p class="sub" style="font-size:var(--t-c1);margin-top:22px">${x.n} 최근 ${x.months}개월 · 앱을 닫아도 계속 불러와요.</p>`;
     const n=Math.ceil(x.months/x.chunk), k=Math.min(n,Math.floor(S.syncPct/100*n)+1);
     return `<p class="sub" style="font-size:var(--t-c1);margin-top:22px">${x.n}${josa(x.n,"은","는")} ${x.chunk}개월씩 나눠 불러와요 · ${k}/${n}<br>앱을 닫아도 계속 불러와요.</p>`;})()}
-  ${S.notiAsked?`<p class="sub" style="font-size:var(--t-c1);margin-top:6px">다 되면 알림으로 알려드릴게요.</p>`:`<button class="cta ghost" data-act="notiask" style="margin-top:12px">다 되면 알림 받기</button>`}`;
+  ${S.notiAsked?`<p class="sub" style="font-size:var(--t-c1);margin-top:6px">다 되면 알림으로 알려드릴게요.</p>`:`<p class="sub notiwhy" style="font-size:var(--t-c1);margin:18px 0 0">불러오기가 끝나면 알려 드려요 · 허용하지 않아도 앱을 쓸 수 있어요</p><button class="cta ghost" data-act="notiask" style="margin-top:8px">다 되면 알림 받기</button>`}`;
 };
 
 V["S-ONB-06"]=()=>{
@@ -2758,6 +2830,7 @@ V["S-ONB-06"]=()=>{
 };
 
 V["S-HOME-01"]=()=>{
+  if(S.areaAuto&&!locUsable()) S.areaAuto=false;   // 위치 약관 · iOS 권한 중 하나라도 없으면 현재 위치를 쓰지 않는다 (v3.10 추가분)
   const pend=pendQ();
   const reco=S.homeSeg!=="friends";
   const recos=S.linked?recommend():recommendGeneric();
@@ -2794,7 +2867,7 @@ V["S-HOME-01"]=()=>{
       </div>
       <div class="hsheadwrap${reco?" two":""}">
       <button class="hshead" data-act="homesheet" aria-expanded="${S.homeSheet!=="peek"}" style="padding-top:0">
-        <span class="hstitle"><b>${reco?"지금 갈 만한 곳":`${(()=>{const lf=FRIENDS.find(x=>x.id===S.friendLayer); return lf?`${esc(lf.name)}님이 자주 가는 곳`:"친구가 자주 가는 곳";})()}`}</b>${!reco&&(!S.areaAuto||S.cat!=="전체")?`<span class="ctx">${[!S.areaAuto?AREAS[S.area].name:"",S.cat!=="전체"?(CATS.find(c=>c[0]===S.cat)||[0,S.cat])[1]:""].filter(Boolean).join(" · ")}</span>`:""}${reco?`<span class="ctx">${S.areaAuto?"현재 위치":S.anchor?(S.anchorName||AREAS[S.area].name+" 주변"):AREAS[S.area].name} · ${SLOTS[S.slot]}${S.filters.size?` · 조건 ${S.filters.size}`:""}</span>`:""}</span>
+        <span class="hstitle"><b>${reco?"지금 갈 만한 곳":`${(()=>{const lf=FRIENDS.find(x=>x.id===S.friendLayer); return lf?`${esc(lf.name)}님이 자주 가는 곳`:"친구가 자주 가는 곳";})()}`}</b>${!reco&&(!S.areaAuto||S.cat!=="전체")?`<span class="ctx">${[!S.areaAuto?AREAS[S.area].name:"",S.cat!=="전체"?(CATS.find(c=>c[0]===S.cat)||[0,S.cat])[1]:""].filter(Boolean).join(" · ")}</span>`:""}${reco?`<span class="ctx">${S.areaAuto?(S.os.loc==="approx"?"대략적인 위치로 찾았어요":"현재 위치"):S.anchor?(S.anchorName||AREAS[S.area].name+" 주변"):AREAS[S.area].name} · ${SLOTS[S.slot]}${S.filters.size?` · 조건 ${S.filters.size}`:""}</span>`:""}</span>
       </button>
       ${reco?`<button class="hsfilter hsarea" data-act="sheet" data-v="areapick" aria-haspopup="dialog" aria-label="기준 동네 바꾸기">${IC.pin}동네</button>`:""}
       ${reco?(()=>{const n=S.filters.size+(S.strict?1:0); return `<button class="hsfilter ${n?"on":""}" data-act="openfilter" aria-label="세부 조건${n?` ${n}개 적용 중`:""}">${IC.sliders}조건${n?` ${n}`:""}</button>`;})():""}
@@ -2815,7 +2888,7 @@ V["S-HOME-01"]=()=>{
             <span style="display:flex;flex:none;margin-right:11px">${fAva(((S.friendLayer&&x.who.find(w=>w.f.id===S.friendLayer))||x.who[0]).f,30)}</span>
             <div style="min-width:0;flex:1"><div class="nm">${esc(x.p.name)}</div>
               <div class="sm" style="font-family:var(--f-body)">${whoLine(x.who)}</div></div>
-            <div class="rt">${meDist(x.p)<=1500?`<div class="sm">도보 ${walkMin(meDist(x.p))}분</div>`:""}
+            <div class="rt">${precise()&&meDist(x.p)<=1500?`<div class="sm">도보 ${walkMin(meDist(x.p))}분</div>`:S.os.loc==="approx"&&locUsable()?`<div class="sm">${AREAS[x.p.area].name}</div>`:""}
               ${visitOf(x.p.id)?`<div class="sm" style="color:var(--knew)">나도 방문</div>`:""}</div>
           </button>`).join("")}</div>`
           :S.noFriends&&!S.linked?`<div class="empty" style="padding:18px 12px">
@@ -3238,6 +3311,8 @@ function markLabel(a,b,r,txt,strong,force){
 }
 /* 내 위치 — 파란 점 + 방향 콘. 파란색은 이 마커에만 쓴다. */
 function meMark(a,b){
+  if(!locUsable()) return "";   // 위치 약관 · iOS 권한 중 하나라도 없으면 내 위치를 그리지 않는다 (v3.10 추가분)
+  if(S.os.loc==="approx") return `<circle cx="${a.toFixed(1)}" cy="${b.toFixed(1)}" r="64" fill="var(--me)" opacity=".1" stroke="var(--me)" stroke-opacity=".3"/>`;   // 대략적 위치 — 점 대신 넓은 원
   return `<g><circle cx="${a.toFixed(1)}" cy="${b.toFixed(1)}" r="22" fill="var(--me)" opacity=".12"/>
     <path d="M ${(a-7).toFixed(1)} ${(b-3).toFixed(1)} L ${a.toFixed(1)} ${(b-21).toFixed(1)} L ${(a+7).toFixed(1)} ${(b-3).toFixed(1)} Z" fill="var(--me)" opacity=".22"/>
     <circle cx="${a.toFixed(1)}" cy="${b.toFixed(1)}" r="8" fill="var(--surface)"/>
@@ -3385,7 +3460,7 @@ function myBrowse(){
     <h1 class="h1" style="font-size:var(--t-t2);margin:0">프로필</h1>
     <span class="hactions"><button class="iconbtn" data-act="go" data-v="S-MY-05" aria-label="설정">${ICON.gear}</button></span>
   </div>
-  ${profHead(`<span class="ava meava" aria-hidden="true">겨</span>`,"김겨레","gyeore","",`<button class="cnt" data-act="ptab" data-v="myTab:friends"><b>${FRIENDS.length}</b> 친구</button>`,
+  ${profHead(`<span class="ava meava" aria-hidden="true">${esc(meIni())}</span>`,meName(),"gyeore","",`<button class="cnt" data-act="ptab" data-v="myTab:friends"><b>${FRIENDS.length}</b> 친구</button>`,
     `<button class="cta ghost" data-act="link">카드 연결</button>
      <button class="cta ghost" data-act="addfriend">친구 추가</button>`)}
   ${tabs}
@@ -3444,7 +3519,7 @@ function myLinked(){
     <button class="iconbtn" data-act="go" data-v="S-MY-05" aria-label="설정">${ICON.gear}</button>
     </span>
   </div>
-  ${profHead(`<span class="ava meava" aria-hidden="true">겨</span>`,"김겨레","gyeore",
+  ${profHead(`<span class="ava meava" aria-hidden="true">${esc(meIni())}</span>`,meName(),"gyeore",
     `${topSlot} <b>${esc(topCat)}</b>파`,
     `<button class="cnt" data-act="ptab" data-v="myTab:friends"><b>${FRIENDS.length}</b> 친구</button> · <button class="cnt" data-act="allvisits"><b>${VISITS.length}</b> 가본 곳</button>`,
     `<button class="cta ghost" data-act="sheet" data-v="plink" aria-haspopup="dialog">프로필 공유</button>
@@ -3505,8 +3580,8 @@ V["S-MY-04"]=()=>{
     <div class="navbar navlike"><button class="navback" data-act="go" data-v="${S.searchBack}" aria-label="뒤로">${IC.back}</button><span class="nb-title">친구 추가</span><span></span></div>
     <div class="srchbody" style="padding:18px">
       <div class="myid">
-        <span class="ava meava">겨</span>
-        <span class="my-body"><b>김겨레</b><i>@gyeore</i></span>
+        <span class="ava meava">${esc(meIni())}</span>
+        <span class="my-body"><b>${esc(meName())}</b><i>@gyeore</i></span>
       </div>
       <p class="sm" style="color:var(--ink-3);margin:9px 0 0">친구는 @gyeore로 나를 찾을 수 있어요.</p>
 
@@ -3658,10 +3733,10 @@ V["S-PRF-01"]=()=>{   // 프로필 링크 받는 쪽 (v3.10) — S-INV-01과 같
 };
 V["S-INV-01"]=()=>{
   /* 링크는 전달된다 — 가입 전에는 누가 초대했는지만. 동네·취향·장소는 가입하고 친구가 된 뒤에 */
-  const me=S.invPreview, f=FRIENDS0[0], nm=me?"김겨레":f.name;
+  const me=S.invPreview, f=FRIENDS0[0], nm=me?meName():f.name;
   return `${me?`<div class="nav"><button data-act="invprevclose" style="display:inline-flex;align-items:center;gap:4px">${IC.back}뒤로</button><span style="font-size:var(--t-c1);color:var(--ink-3)">친구가 보게 될 화면</span></div>`:""}
   <div style="padding-top:${me?40:88}px"></div>
-  ${me?`<span class="ava meava" style="width:52px;height:52px;font-size:var(--t-t2)" aria-hidden="true">겨</span>`:fAva(f,52)}
+  ${me?`<span class="ava meava" style="width:52px;height:52px;font-size:var(--t-t2)" aria-hidden="true">${esc(meIni())}</span>`:fAva(f,52)}
   <h1 class="h1" style="margin-top:16px">${nm}님이<br>초대했어요</h1>
   <p class="sub">가입하면 ${nm}님과 바로 친구가 돼요.</p>
   <div class="card" style="margin:6px 0 18px">
@@ -3700,12 +3775,17 @@ V["S-MY-05"]=()=>{
     <div class="tall"><span><b>혜택·이벤트 알림 (광고)</b><small>밤 9시~아침 8시에는 따로 동의한 경우에만 보내요.</small></span>
       <button class="sw" role="switch" data-act="mkttoggle" aria-checked="${S.consent.mkt}" aria-label="혜택·이벤트 알림"></button></div>
   </div>
+  ${S.os.noti==="denied"?`<p class="gfoot osoff">기기 설정에서 알림이 꺼져 있어 보내지 못해요. <button class="inlink" data-act="osopen">설정 열기</button></p>`:""}
   ${S.consent.mkt?`<p class="gfoot">${S.mktAt||S.agreedAt||today()}에 동의했어요. 2년마다 동의 사실을 알려 드려요.</p>`:""}
 
   <p class="ghead">위치</p>
   <div class="igroup"><div><span>위치기반서비스 이용</span><button class="sw" role="switch" data-act="loctoggle" aria-checked="${S.consent.loc}" aria-label="위치기반서비스 이용"></button></div>
     <button data-act="toast" data-v="최근 6개월 위치정보 이용·제공 내역을 엽니다"><span>위치정보 이용·제공 내역</span><span class="v">${IC.chevR}</span></button></div>
-  <p class="gfoot">끄면 지도에 내 위치가 보이지 않고, 동네를 직접 골라요.</p>
+  <p class="gfoot">${!S.consent.loc?"끄면 지도에 내 위치가 보이지 않고, 동네를 직접 골라요. 켜면 위치기반서비스 이용약관 동의를 다시 받아요."
+    :S.os.loc==="denied"?`${S.locAt?S.locAt.split(" ")[0]+"에 동의했어요. ":""}기기 설정에서 위치가 꺼져 있어 내 위치를 쓰지 않아요. <button class="inlink" data-act="osopen">설정 열기</button>`
+    :S.os.loc==="unasked"?`${S.locAt?S.locAt.split(" ")[0]+"에 동의했어요. ":""}내 위치를 처음 쓸 때 iOS 권한 창이 떠요.`
+    :S.os.loc==="approx"?`${S.locAt?S.locAt.split(" ")[0]+"에 동의했어요. ":""}대략적인 위치만 허용했어요. 동네 기준으로 추천하고, 도보 시간 대신 동네 이름을 보여 줘요.`
+    :`${S.locAt?S.locAt.split(" ")[0]+"에 동의했어요. ":""}끄면 위치기반서비스 동의가 철회되고, 지도에 내 위치가 보이지 않아요.`}</p>
 
   <p class="ghead">친구에게 공개할 기본 범위</p>
   <div class="fsharerow seg" role="radiogroup" aria-label="친구에게 공개할 기본 범위">
@@ -3730,6 +3810,7 @@ V["S-MY-05"]=()=>{
 
   <p class="ghead">계정</p>
   <div class="igroup">
+    <div class="tall"><span><b>${S.acct.provider==="apple"?"Apple로 로그인":"카카오로 로그인"}</b><small style="word-break:break-all">${esc(S.acct.email)}${S.acct.hide?" · 나의 이메일 가리기":""}</small></span></div>
     <button class="act" data-act="acctsheet" data-v="logout">로그아웃</button>
     <button class="danger" data-act="acctsheet" data-v="withdraw">회원탈퇴</button>
   </div>
@@ -3756,7 +3837,7 @@ V["S-CMN-01"]=()=>{
     offline:{h:"인터넷에 연결되지 않았어요",p:"저장된 기록은 그대로 볼 수 있어요. 연결되면 자동으로 새로 불러와요.",b:"다시 시도",act:"refresh"},
     update:{h:"새 버전으로 업데이트해 주세요",p:"이 버전은 더 이상 지원하지 않아요. 기록은 그대로 남아 있어요.",b:"App Store에서 업데이트",act:"toast",go:"App Store를 엽니다"},
     dormant:{h:"오랜만이에요",p:"6개월 넘게 앱을 열지 않아 휴면 계정으로 바뀌었어요. 휴면을 풀면 카드 인증을 다시 확인하고 최근 결제부터 이어서 불러와요.",b:"휴면 풀고 시작하기",act:"reauth"},
-    session:{h:"다시 로그인해 주세요",p:"보안을 위해 로그인이 만료됐어요. 로그인하면 보던 화면으로 돌아가요.",b:"로그인",go:"S-ONB-01"}
+    session:{h:"다시 로그인해 주세요",p:"보안을 위해 로그인이 만료됐어요. 로그인하면 보던 화면으로 돌아가요.",b:"로그인",act:"sessionlogin"}
   };
   const e=E[S.err]||E.noreco;
   return `${["update","session","dormant"].includes(S.err)?"":nav("","S-HOME-01")}<div class="empty" style="padding-top:120px" role="status">
@@ -3765,19 +3846,19 @@ V["S-CMN-01"]=()=>{
 };
 
 /* ═══════════ 인스펙터 ═══════════ */
-function overlayId(){return S.sheet==="notscope"?"S-HOME-04b":S.sheet==="mrules"?"S-MY-05h":S.sheet==="plink"?"S-MY-01a":S.sheet==="gokakao"?"S-PLC-01c":S.sheet==="dislikes"?"S-MY-05g":S.sheet==="visitfix"?"S-PLC-01b":(S.sheet==="qsearch"&&S.qmode==="fix")?"S-PLC-01b":S.sheet==="areapick"?"S-HOME-01a":S.sheet==="kbhold"?"S-ONB-04a":S.sheet==="doc"?"S-CMN-02":S.sheet==="perms"?"S-ONB-02a":S.sheet==="blockcf"?"S-MY-03a":S.sheet==="report"?"S-MY-03b":S.sheet==="consents"?"S-MY-05c":S.sheet==="export"?"S-MY-05d":S.sheet==="sharecons"?"S-MY-05e":S.sheet==="fshare"?"S-MY-03c":S.sheet==="unfconfirm"?"S-MY-03d":S.sheet==="unlink"?"S-MY-05f":S.sheet==="paycons"?"S-ONB-03a":S.sheet==="qsearch"?"S-HOME-04a":S.sheet==="savepick"?"S-PLC-01a":S.sheet==="logout"?"S-MY-05a":S.sheet==="withdraw"?"S-MY-05b":(S.sortPop&&S.screen==="S-PLS-01")?"S-PLS-01a":null;}
+function overlayId(){return S.sheet==="apple"?"S-ONB-01a":S.sheet==="locuse"?"S-HOME-01b":S.sheet==="oslocpop"?"OS-LOC":S.sheet==="osnotipop"?"OS-NOTI":S.sheet==="notscope"?"S-HOME-04b":S.sheet==="mrules"?"S-MY-05h":S.sheet==="plink"?"S-MY-01a":S.sheet==="gokakao"?"S-PLC-01c":S.sheet==="dislikes"?"S-MY-05g":S.sheet==="visitfix"?"S-PLC-01b":(S.sheet==="qsearch"&&S.qmode==="fix")?"S-PLC-01b":S.sheet==="areapick"?"S-HOME-01a":S.sheet==="kbhold"?"S-ONB-04a":S.sheet==="doc"?"S-CMN-02":S.sheet==="blockcf"?"S-MY-03a":S.sheet==="report"?"S-MY-03b":S.sheet==="consents"?"S-MY-05c":S.sheet==="export"?"S-MY-05d":S.sheet==="sharecons"?"S-MY-05e":S.sheet==="fshare"?"S-MY-03c":S.sheet==="unfconfirm"?"S-MY-03d":S.sheet==="unlink"?"S-MY-05f":S.sheet==="paycons"?"S-ONB-03a":S.sheet==="qsearch"?"S-HOME-04a":S.sheet==="savepick"?"S-PLC-01a":S.sheet==="logout"?"S-MY-05a":S.sheet==="withdraw"?"S-MY-05b":(S.sortPop&&S.screen==="S-PLS-01")?"S-PLS-01a":null;}
 /* IA — depth 순서 그대로. d = 들여쓰기(depth), v = 같은 화면의 상태 바로가기 */
 const NAV_IA=[
   {g:"진입"},
   {id:"S-INV-01",d:0},
   {g:"온보딩"},
-  {id:"S-ONB-01",d:0},{id:"S-ONB-02",d:0},{id:"S-ONB-02a",d:1,k:"BS"},
+  {id:"S-ONB-01",d:0},{id:"S-ONB-01a",d:1,k:"OS",v:[["처음 가입","new"],["기존 회원","existing"],["Face ID 실패","fail"],["암호 입력","pin"]]},{id:"S-ONB-02",d:0},
   {id:"S-ONB-03",d:0,v:[["기본",""],["준비 중 펼침","soon"]]},
   {id:"S-ONB-03a",d:1,k:"BS"},
   {id:"S-ONB-04",d:0,v:[["기본",""],["불일치 1회","fail1"],["2회 차단","fail2"]]},{id:"S-ONB-04a",d:1,k:"BS"},
   {id:"S-ONB-05",d:0},{id:"S-ONB-06",d:0},
   {g:"홈 탭"},
-  {id:"S-HOME-01",d:0,v:[["추천","reco"],["친구","friends"],["다른 동네로 이동","moved"]]},{id:"S-HOME-01a",d:1,k:"BS"},
+  {id:"S-HOME-01",d:0,v:[["추천","reco"],["친구","friends"],["다른 동네로 이동","moved"]]},{id:"S-HOME-01a",d:1,k:"BS"},{id:"S-HOME-01b",d:1,k:"BS"},
   {id:"S-HOME-02",d:1},{id:"S-HOME-03",d:1},{id:"S-HOME-04",d:2},{id:"S-HOME-04a",d:3,k:"BS"},{id:"S-HOME-04b",d:3,k:"BS"},
   {id:"S-PLC-01",d:1},{id:"S-PLC-01a",d:2,k:"BS"},{id:"S-PLC-01b",d:2,k:"BS"},{id:"S-PLC-01c",d:2,k:"BS"},
   {g:"내 장소 탭"},
@@ -3788,14 +3869,16 @@ const NAV_IA=[
   {id:"S-SRCH-01",d:0},
   {id:"S-PRF-01",d:0,v:[["미가입","guest"],["비친구","stranger"],["차단 관계","blocked"],["옛 링크","revoked"],["친구 → 친구 프로필","friend"]]},
   {id:"S-CMN-02",d:0,v:[["이용약관","tos"],["개인정보 처리방침","privacy"],["위치기반서비스","loc"],["결제내역 동의","pay"],["광고 수신","mkt"],["친구 공개","share"]]},
-  {id:"S-CMN-01",d:0,v:[["동기화 실패","sync"],["인증 만료","reauth"],["추천 없음","noreco"],["매칭 실패","nomatch"],["기록 없음","novisit"],["친구 없음","nofriend"],["연결 없음","offline"],["업데이트 필요","update"],["로그인 만료","session"],["휴면 계정","dormant"]]}
+  {id:"S-CMN-01",d:0,v:[["동기화 실패","sync"],["인증 만료","reauth"],["추천 없음","noreco"],["매칭 실패","nomatch"],["기록 없음","novisit"],["친구 없음","nofriend"],["연결 없음","offline"],["업데이트 필요","update"],["로그인 만료","session"],["휴면 계정","dormant"]]},
+  {g:"iOS 시스템"},
+  {id:"OS-LOC",d:0,k:"OS"},{id:"OS-NOTI",d:0,k:"OS"}
 ];
 /* 기능 명세 — 기능명세서 v3.2 목록. t = 이동할 화면(없으면 내부 기능), v = 상태 */
-const NAV_FN=[["온보딩 · 카드 연결", [["FN-ON-010", "소셜 로그인", "S-ONB-01"], ["FN-ON-020", "초대 링크로 시작", "S-INV-01"], ["FN-ON-021", "프로필 링크로 시작", "S-PRF-01", "guest"], ["FN-ON-030", "약관 동의", "S-ONB-02"], ["FN-ON-031", "앱 접근 권한 안내", "S-ONB-02a"], ["FN-ON-040", "카드사 선택", "S-ONB-03"], ["FN-ON-090", "준비 중 카드사 알림 신청", "S-ONB-03", "soon"], ["FN-ON-045", "나중에 연결하고 둘러보기", "S-ONB-03"], ["FN-ON-050", "카드 연결 동의", "S-ONB-03a"], ["FN-ON-041", "카드사 홈페이지 로그인", "S-ONB-04"], ["FN-ON-042", "카드사 아이디 찾기 · 회원가입", "S-ONB-04"], ["FN-ON-043", "로그인 실패 안내", "S-ONB-04", "fail2"], ["FN-ON-044", "추가 인증 (KB 카드소지확인)", "S-ONB-04a"], ["FN-ON-060", "방문 내역 불러오기", "S-ONB-05"], ["FN-ON-080", "첫 방문 요약", "S-ONB-06"]]], ["동기화 · 방문 기록", [["FN-SY-010", "새 결제 자동 반영", null], ["FN-SY-040", "결제 → 방문 자동 기록", null], ["FN-SY-080", "확인할 일", "S-HOME-01"], ["FN-SY-081", "방문 장소 확인", "S-HOME-04"], ["FN-SY-090", "또 가고 싶은 곳 표시", "S-HOME-04"], ["FN-SY-100", "카드 재인증", "S-CMN-01", "reauth"], ["FN-SY-130", "방문 확인 알림", null]]], ["추천", [["FN-RE-040", "추천 기준 설정", "S-HOME-01", "reco"], ["FN-RE-010", "지금 갈 만한 곳 3곳", "S-HOME-01", "reco"], ["FN-RE-080", "추천 이유", "S-HOME-01", "reco"], ["FN-RE-110", "구경 모드 추천", "S-HOME-01", "browsereco"], ["FN-RE-030", "세부 조건", "S-HOME-02"], ["FN-RE-090", "다른 곳 더 보기", "S-HOME-01", "reco"], ["FN-RE-100", "이 지역에서 다시 찾기", "S-HOME-01", "moved"], ["FN-RE-120", "관심 없어요", "S-PLC-01"], ["FN-RE-121", "관심 없어요 목록", "S-MY-05g"], ["FN-RE-150", "카드 연결 제안", "S-HOME-01", "browsereco"], ["FN-RE-200", "추천 성과 확인 (내부)", null]]], ["장소 · 저장 · 검색", [["FN-PL-010", "장소 상세", "S-PLC-01"], ["FN-PL-020", "공유 · 길찾기", "S-PLC-01"], ["FN-PL-030", "편의 정보", "S-PLC-01"], ["FN-PL-040", "내 방문 기록", "S-PLC-01b"], ["FN-PL-050", "장소 저장", "S-PLC-01a"], ["FN-PL-051", "내 장소", "S-PLS-01"], ["FN-PL-060", "저장 목록 추가", "S-PLS-02"], ["FN-PL-070", "다녀온 친구", "S-PLC-01"], ["FN-PL-080", "검색", "S-SRCH-01"], ["FN-PL-090", "카카오톡 같이 가자", "S-PLC-01c"]]], ["취향", [["FN-TA-010", "내 취향", "S-MY-01"]]], ["친구", [["FN-FR-010", "친구 추가", "S-MY-04"], ["FN-FR-020", "친구 초대", "S-MY-04"], ["FN-FR-013", "프로필 공유 · 링크", "S-PRF-01", "stranger"], ["FN-FR-050", "친구 요청 수락 · 거절", "S-HOME-03"], ["FN-FR-051", "보낸 요청 취소", "S-MY-04"], ["FN-FR-030", "친구 목록", "S-MY-01"], ["FN-FR-031", "친구 프로필", "S-MY-03"], ["FN-FR-032", "차단", "S-MY-03a"], ["FN-FR-033", "신고", "S-MY-03b"], ["FN-FR-034", "친구 끊기", "S-MY-03d"], ["FN-FR-060", "친구 지도", "S-HOME-01", "friends"]]], ["설정", [["FN-SE-010", "카드 관리", "S-MY-05"], ["FN-SE-020", "친구 공개 범위", "S-MY-05"], ["FN-SE-021", "친구 공개 동의", "S-MY-05e"], ["FN-SE-030", "위치기반서비스 설정", "S-MY-05"], ["FN-SE-040", "로그아웃 · 회원탈퇴", "S-MY-05"], ["FN-SE-050", "알림 설정", "S-MY-05"], ["FN-SE-060", "동의 내역", "S-MY-05c"], ["FN-SE-070", "내 데이터 받기", "S-MY-05d"], ["FN-SE-080", "약관 · 처리방침 보기", "S-CMN-02"], ["FN-SE-121", "다시 묻지 않는 가게", "S-MY-05h"]]], ["빈 상태 · 오류", [["FN-ER-010", "빈 상태 안내", "S-CMN-01", "novisit"], ["FN-ER-030", "결제 불러오기 실패", "S-CMN-01", "sync"], ["FN-ER-040", "장소 찾기 실패", "S-CMN-01", "nomatch"], ["FN-ER-050", "카드 인증 만료", "S-CMN-01", "reauth"], ["FN-ER-060", "네트워크 연결 없음", "S-CMN-01", "offline"], ["FN-ER-070", "앱 업데이트 · 점검 안내", "S-CMN-01", "update"], ["FN-ER-080", "로그인 만료", "S-CMN-01", "session"], ["FN-SE-120", "휴면 계정 해제", "S-CMN-01", "dormant"]]]];
+const NAV_FN=[["온보딩 · 카드 연결", [["FN-ON-010", "소셜 로그인", "S-ONB-01"], ["FN-ON-020", "초대 링크로 시작", "S-INV-01"], ["FN-ON-021", "프로필 링크로 시작", "S-PRF-01", "guest"], ["FN-ON-030", "약관 동의", "S-ONB-02"], ["FN-ON-031", "접근 권한 · 첫 사용 시점 안내", "OS-LOC"], ["FN-ON-040", "카드사 선택", "S-ONB-03"], ["FN-ON-090", "준비 중 카드사 알림 신청", "S-ONB-03", "soon"], ["FN-ON-045", "나중에 연결하고 둘러보기", "S-ONB-03"], ["FN-ON-050", "카드 연결 동의", "S-ONB-03a"], ["FN-ON-041", "카드사 홈페이지 로그인", "S-ONB-04"], ["FN-ON-042", "카드사 아이디 찾기 · 회원가입", "S-ONB-04"], ["FN-ON-043", "로그인 실패 안내", "S-ONB-04", "fail2"], ["FN-ON-044", "추가 인증 (KB 카드소지확인)", "S-ONB-04a"], ["FN-ON-060", "방문 내역 불러오기", "S-ONB-05"], ["FN-ON-080", "첫 방문 요약", "S-ONB-06"]]], ["동기화 · 방문 기록", [["FN-SY-010", "새 결제 자동 반영", null], ["FN-SY-040", "결제 → 방문 자동 기록", null], ["FN-SY-080", "확인할 일", "S-HOME-01"], ["FN-SY-081", "방문 장소 확인", "S-HOME-04"], ["FN-SY-090", "또 가고 싶은 곳 표시", "S-HOME-04"], ["FN-SY-100", "카드 재인증", "S-CMN-01", "reauth"], ["FN-SY-130", "방문 확인 알림", null]]], ["추천", [["FN-RE-040", "추천 기준 설정", "S-HOME-01", "reco"], ["FN-RE-010", "지금 갈 만한 곳 3곳", "S-HOME-01", "reco"], ["FN-RE-080", "추천 이유", "S-HOME-01", "reco"], ["FN-RE-110", "구경 모드 추천", "S-HOME-01", "browsereco"], ["FN-RE-030", "세부 조건", "S-HOME-02"], ["FN-RE-090", "다른 곳 더 보기", "S-HOME-01", "reco"], ["FN-RE-100", "이 지역에서 다시 찾기", "S-HOME-01", "moved"], ["FN-RE-120", "관심 없어요", "S-PLC-01"], ["FN-RE-121", "관심 없어요 목록", "S-MY-05g"], ["FN-RE-150", "카드 연결 제안", "S-HOME-01", "browsereco"], ["FN-RE-200", "추천 성과 확인 (내부)", null]]], ["장소 · 저장 · 검색", [["FN-PL-010", "장소 상세", "S-PLC-01"], ["FN-PL-020", "공유 · 길찾기", "S-PLC-01"], ["FN-PL-030", "편의 정보", "S-PLC-01"], ["FN-PL-040", "내 방문 기록", "S-PLC-01b"], ["FN-PL-050", "장소 저장", "S-PLC-01a"], ["FN-PL-051", "내 장소", "S-PLS-01"], ["FN-PL-060", "저장 목록 추가", "S-PLS-02"], ["FN-PL-070", "다녀온 친구", "S-PLC-01"], ["FN-PL-080", "검색", "S-SRCH-01"], ["FN-PL-090", "카카오톡 같이 가자", "S-PLC-01c"]]], ["취향", [["FN-TA-010", "내 취향", "S-MY-01"]]], ["친구", [["FN-FR-010", "친구 추가", "S-MY-04"], ["FN-FR-020", "친구 초대", "S-MY-04"], ["FN-FR-013", "프로필 공유 · 링크", "S-PRF-01", "stranger"], ["FN-FR-050", "친구 요청 수락 · 거절", "S-HOME-03"], ["FN-FR-051", "보낸 요청 취소", "S-MY-04"], ["FN-FR-030", "친구 목록", "S-MY-01"], ["FN-FR-031", "친구 프로필", "S-MY-03"], ["FN-FR-032", "차단", "S-MY-03a"], ["FN-FR-033", "신고", "S-MY-03b"], ["FN-FR-034", "친구 끊기", "S-MY-03d"], ["FN-FR-060", "친구 지도", "S-HOME-01", "friends"]]], ["설정", [["FN-SE-010", "카드 관리", "S-MY-05"], ["FN-SE-020", "친구 공개 범위", "S-MY-05"], ["FN-SE-021", "친구 공개 동의", "S-MY-05e"], ["FN-SE-030", "위치기반서비스 설정 · 동의", "S-HOME-01b"], ["FN-SE-040", "로그아웃 · 회원탈퇴", "S-MY-05"], ["FN-SE-050", "알림 설정", "S-MY-05"], ["FN-SE-060", "동의 내역", "S-MY-05c"], ["FN-SE-070", "내 데이터 받기", "S-MY-05d"], ["FN-SE-080", "약관 · 처리방침 보기", "S-CMN-02"], ["FN-SE-121", "다시 묻지 않는 가게", "S-MY-05h"]]], ["빈 상태 · 오류", [["FN-ER-010", "빈 상태 안내", "S-CMN-01", "novisit"], ["FN-ER-030", "결제 불러오기 실패", "S-CMN-01", "sync"], ["FN-ER-040", "장소 찾기 실패", "S-CMN-01", "nomatch"], ["FN-ER-050", "카드 인증 만료", "S-CMN-01", "reauth"], ["FN-ER-060", "네트워크 연결 없음", "S-CMN-01", "offline"], ["FN-ER-070", "앱 업데이트 · 점검 안내", "S-CMN-01", "update"], ["FN-ER-080", "로그인 만료", "S-CMN-01", "session"], ["FN-SE-120", "휴면 계정 해제", "S-CMN-01", "dormant"]]]];
 let NAVTAB="ia";
 const ALL_MODES=["browse0","browse1","linked"];
 const MODE_L={browse0:"구경 · 친구 없음",browse1:"구경 · 친구 있음",linked:"연결됨"};
-const PRE_MODE=["S-INV-01","S-ONB-01","S-ONB-02"];
+const PRE_MODE=["S-INV-01","S-ONB-01","S-ONB-01a","S-ONB-02"];
 const prfModes=v=>v==="guest"?null:v==="friend"?["browse1","linked"]:ALL_MODES;   // S-PRF-01 — 미가입은 모드 전          // 로그인 · 약관 — 아직 모드가 정해지지 않은 화면
 /* 이 화면이 실제로 나올 수 있는 모드. null = 모드와 무관(온보딩 전) */
 function modesFor(id,v){
@@ -3806,7 +3889,7 @@ function modesFor(id,v){
   if(id==="S-MY-05f") return ["linked"];   // 연결된 카드가 있어야 해제
   if(id==="S-HOME-04b") return ["linked"];
   if(id==="S-PLC-01b") return ["linked"];   // 고칠 방문 기록이 있어야 열린다   // 친구가 있어야 열리는 친구 프로필
-  if(["S-ONB-05","S-ONB-06","S-HOME-04","S-HOME-04a"].includes(id)) return ["linked"]; // 결제내역이 있어야 나옴
+  if(["S-ONB-05","S-ONB-06","S-HOME-04","S-HOME-04a","OS-NOTI"].includes(id)) return ["linked"]; // 결제내역이 있어야 나옴
   if(id==="S-CMN-01") return ({sync:["linked"],reauth:["linked"],dormant:["linked"],nomatch:["linked"],novisit:["browse0","browse1"],nofriend:["browse0"],noreco:ALL_MODES})[v||S.err]||ALL_MODES;
   return ALL_MODES;
 }
@@ -3821,6 +3904,10 @@ function renderInspector(){
   $("#curname").textContent=(SCREENS[cur]||{n:""}).n;
   document.querySelectorAll("[data-navtab]").forEach(b=>b.setAttribute("aria-selected",b.dataset.navtab===NAVTAB));
   $("#entryseg").innerHTML=[["organic","직접 설치"],["invite","초대 링크"]].map(([k,l])=>`<button data-setentry="${k}" aria-pressed="${S.entry===k}">${l}</button>`).join("");
+  $("#oslocseg").innerHTML=[["unasked","안 물음"],["granted","허용"],["denied","거부"],["once","한 번 허용"],["approx","대략적 위치"]].map(([k,l])=>`<button data-setos="loc:${k}" aria-pressed="${S.os.loc===k}">${l}</button>`).join("");
+  $("#osnotiseg").innerHTML=[["unasked","안 물음"],["granted","허용"],["denied","거부"]].map(([k,l])=>`<button data-setos="noti:${k}" aria-pressed="${S.os.noti===k}">${l}</button>`).join("")+`<button data-reopen="1" title="한 번 허용은 아직 안 물음으로 돌아가요">앱 다시 열기</button>`;
+  $("#acctseg").innerHTML=[["new","처음 가입"],["existing","기존 회원"]].map(([k,l])=>`<button data-setacct="${k}" aria-pressed="${S.appleUser===k}">${l}</button>`).join("");
+  $("#faceseg").innerHTML=[["ok","성공"],["fail","실패"],["cancel","취소"]].map(([k,l])=>`<button data-setface="${k}" aria-pressed="${S.faceSim===k}">${l}</button>`).join("");
   const pre=PRE_MODE.includes(S.screen)&&!oid;
   $("#modeseg").innerHTML=ALL_MODES.map(k=>{const bad=!modesForEntry().includes(k);
     return `<button data-setmode="${k}" aria-pressed="${!pre&&curMode()===k}" ${bad?`disabled title="초대 링크로 들어오면 처음부터 친구가 있어요"`:""}>${MODE_L[k]}</button>`;}).join("")
@@ -3830,7 +3917,7 @@ function renderInspector(){
     body.innerHTML=NAV_IA.map(n=>{
       if(n.g) return `<div class="ngrp">${n.g}</div>`;
       const on=cur===n.id;
-      const name=(SCREENS[n.id]||{n:n.id}).n.replace(/ \[(BS|POP)\]$/,"");
+      const name=(SCREENS[n.id]||{n:n.id}).n.replace(/ \[(BS|POP|OS)\]$/,"");
       const al=modesFor(n.id), off=al&&!PRE_MODE.includes(S.screen)&&!al.includes(curMode());
       const need=off?(al.length===1?MODE_L[al[0]]+"에서만":"구경에서만"):"";
       return `<button class="nitem" data-jump="${n.id}" aria-current="${on}">
@@ -3846,6 +3933,7 @@ function renderInspector(){
 }
 function varOn(id,v){
   if(id==="S-HOME-01") return v==="moved"?!S.areaAuto:(!!S.areaAuto&&(v==="friends"?S.homeSeg==="friends":S.homeSeg!=="friends"));
+  if(id==="S-ONB-01a") return v==="fail"||v==="pin"?S.appleFace===v:(S.appleUser===v&&!S.appleFace);
   if(id==="S-ONB-03") return v==="soon"?!!S.showSoon:!S.showSoon;
   if(id==="S-ONB-04") return v==="fail1"?S.authErr==="wrong":v==="fail2"?S.authErr==="lockrisk":!S.authErr;
   if(id==="S-PLS-01") return S.placesFilter===v;
@@ -3908,7 +3996,7 @@ function renderSheet(){
         <div style="border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)">
           <div style="height:120px;display:flex;align-items:center;justify-content:center;background:var(--brand-soft);color:var(--new-ink)" aria-hidden="true">${gIcon(p.g)}</div>
           <div style="padding:12px 14px"><b style="display:block">${esc(p.name)} 같이 갈래?</b>
-            <span style="display:block;color:var(--ink-3);font-size:var(--t-c1);margin-top:2px">${p.cat} · ${AREAS[p.area].name} · 김겨레님이 KNEWIT에서 보냈어요</span></div>
+            <span style="display:block;color:var(--ink-3);font-size:var(--t-c1);margin-top:2px">${p.cat} · ${AREAS[p.area].name} · ${esc(meName())}님이 KNEWIT에서 보냈어요</span></div>
           <div style="border-top:1px solid var(--line);padding:10px;text-align:center;font-weight:600">KNEWIT에서 보기</div>
         </div>
         <p class="sub" style="margin:10px 0 0;font-size:var(--t-c1)">앱이 있으면 이 장소가 바로 열리고, 없으면 웹에서 미리 본 뒤 설치로 이어져요.</p>
@@ -4079,19 +4167,85 @@ function renderSheet(){
       </div></div>`);
     return;
   }
-  if(S.sheet==="perms"){
-    const r=(t,d)=>`<div class="tall"><span><b>${t}</b><small>${d}</small></span><span class="v">선택</span></div>`;
-    mountSheet(host,`<button class="sheetdim" data-act="sheetclose" aria-label="닫기"></button>
-    <div class="sheet" role="dialog" aria-modal="true" tabindex="-1" aria-label="앱 접근 권한 안내"><div class="grip"></div>
-      <div class="shead"><b>앱 접근 권한 안내</b><button class="shx" data-act="sheetclose" aria-label="닫기">${IC.x}</button></div>
+  if(S.sheet==="locuse"){   // S-HOME-01b 위치 사용 — 위치 약관은 지도에 처음 들어갈 때 한 번 (v3.10 추가분)
+    mountSheet(host,`<button class="sheetdim" data-act="locskip" aria-label="닫기"></button>
+    <div class="sheet" role="dialog" aria-modal="true" tabindex="-1" aria-label="위치 사용"><div class="grip"></div>
+      <div class="shead"><b>내 위치를 쓸까요?</b><button class="shx" data-act="locskip" aria-label="닫기">${IC.x}</button></div>
       <div class="sbody">
-        <div class="igroup" style="margin:0">
-          ${r("위치","지금 있는 곳 근처를 추천하고, 지도에 내 위치를 보여줘요.")}
-          ${r("알림","방문 확인과 친구 요청을 알려줘요.")}
-        </div>
-        <p class="agnote">허용하지 않아도 앱을 쓸 수 있어요. 기기의 설정 앱에서 언제든 바꿀 수 있어요.</p>
-        <div class="stack" style="margin-top:14px"><button class="cta" data-act="permok">확인</button></div>
+        <p class="sub" style="margin:0">지금 있는 곳 근처 장소를 추천하고, 지도에 내 위치를 보여 줘요.</p>
+        <p class="sub" style="margin:6px 0 0">거부해도 동네를 직접 고를 수 있어요.</p>
+        <button class="textlink" data-act="doc" data-v="loc" aria-haspopup="dialog" style="margin:12px 0 0">위치기반서비스 이용약관 전문 보기 ${IC.chevR}</button>
+        <p class="agnote">동의하면 iOS 위치 권한 창이 이어서 떠요. 설정 › 위치기반서비스에서 언제든 철회할 수 있어요.</p>
+        <div class="stack" style="margin-top:14px"><button class="cta" data-act="locagree">동의하고 위치 쓰기</button><button class="cta ghost" data-act="locpick">동네 직접 고르기</button></div>
       </div></div>`);
+    return;
+  }
+  if(S.sheet==="oslocpop"){   // OS-LOC — iOS 17 위치 권한 팝업 흉내. 아직 안 물음일 때만 뜬다
+    const pr=S.osPrecise;
+    mountSheet(host,`<div class="osdim" aria-hidden="true"></div>
+    <div class="osalert" role="alertdialog" aria-modal="true" tabindex="-1" aria-labelledby="osl-t" aria-describedby="osl-s"><div class="sbody">
+      <p class="ost" id="osl-t">‘KNEWIT’에서 사용자의 위치를 사용하도록 허용하겠습니까?</p>
+      <p class="oss" id="osl-s">지금 있는 곳 근처 장소를 추천하고 지도에 내 위치를 보여 줘요</p>
+      <div class="osmap"><svg viewBox="0 0 238 132" aria-hidden="true">
+        <rect width="238" height="132" fill="#EDE9DF"/>
+        <path d="M-5 92L245 60M40 -5L78 140M150 -5L170 140M-5 24L245 38" stroke="#fff" stroke-width="7"/>
+        <path d="M-5 112L245 100M110 -5L102 140" stroke="#fff" stroke-width="4"/>
+        <path d="M190 0Q215 40 238 52V0z" fill="#CFE3C4"/><path d="M0 120Q30 110 52 132H0z" fill="#B9D7EE"/>
+        ${pr?`<circle cx="119" cy="68" r="22" fill="#007AFF" opacity=".14"/><circle cx="119" cy="68" r="7.5" fill="#fff"/><circle cx="119" cy="68" r="5.5" fill="#007AFF"/>`
+          :`<circle cx="119" cy="66" r="52" fill="#007AFF" opacity=".16" stroke="#007AFF" stroke-opacity=".35"/>`}
+      </svg><button class="osprec" data-act="osprec" aria-pressed="${pr}">정확한 위치: ${pr?"켬":"끔"}</button></div>
+      <button class="osbtn" data-act="oslocans" data-v="once">한 번 허용</button>
+      <button class="osbtn" data-act="oslocans" data-v="while">앱을 사용하는 동안 허용</button>
+      <button class="osbtn" data-act="oslocans" data-v="deny">허용 안 함</button>
+    </div></div>`);
+    return;
+  }
+  if(S.sheet==="osnotipop"){   // OS-NOTI — iOS 알림 권한 팝업 흉내
+    mountSheet(host,`<div class="osdim" aria-hidden="true"></div>
+    <div class="osalert" role="alertdialog" aria-modal="true" tabindex="-1" aria-labelledby="osn-t" aria-describedby="osn-s"><div class="sbody">
+      <p class="ost" id="osn-t">‘KNEWIT’에서 알림을 보내고자 합니다</p>
+      <p class="oss" id="osn-s">경고, 사운드 및 아이콘 배지가 알림에 포함될 수 있습니다. 설정에서 이를 구성할 수 있습니다.</p>
+      <button class="osbtn" data-act="osnotians" data-v="deny">허용 안 함</button>
+      <button class="osbtn b" data-act="osnotians" data-v="allow">허용</button>
+    </div></div>`);
+    return;
+  }
+  if(S.sheet==="osset"){   // 거부한 뒤에는 iOS 팝업이 다시 뜨지 않는다 — 앱 시트로 설정 안내
+    const loc=S.osSet!=="noti";
+    mountSheet(host,`<button class="sheetdim" data-act="sheetclose" aria-label="닫기"></button>
+    <div class="sheet confirm" role="alertdialog" aria-modal="true" aria-labelledby="oss-t" aria-describedby="oss-s" tabindex="-1">
+      <div class="sbody"><p id="oss-t" class="cf-t">설정에서 ${loc?"위치를":"알림을"} 허용해 주세요</p>
+        <p id="oss-s" class="cf-s">${loc?"기기 설정에서 KNEWIT의 위치 접근이 꺼져 있어요. 동네는 직접 고를 수 있어요.":"기기 설정에서 KNEWIT의 알림이 꺼져 있어요. 켜면 방문 확인과 친구 요청을 알려 드려요."}</p>
+        <div class="cf-acts"><button class="pill" data-act="sheetclose">닫기</button><button class="pill" data-act="osopen">설정 열기</button></div></div>
+    </div>`);
+    return;
+  }
+  if(S.sheet==="apple"){   // S-ONB-01a Sign in with Apple — iOS 시스템 시트 흉내. 앱 잠금이 아니라 Apple 시트 안의 시스템 인증 (D-18)
+    const ex=S.appleUser==="existing", f=S.appleFace;
+    const face=f&&f!=="pin"?`<div class="fid ${f}" role="status" aria-live="polite"><div class="fidbox">${f==="ok"?`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.3l3 3 6-6.3"/></svg>`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8V5.5A2.5 2.5 0 0 1 5.5 3H8M16 3h2.5A2.5 2.5 0 0 1 21 5.5V8M21 16v2.5a2.5 2.5 0 0 1-2.5 2.5H16M8 21H5.5A2.5 2.5 0 0 1 3 18.5V16M8.5 9v1.5M15.5 9v1.5M12 9v4.5h-1M9 16.2c1.7 1.3 4.3 1.3 6 0"/></svg>`}</div>
+      <p class="fidt">${f==="scan"?"Face ID":f==="ok"?"완료":"Face ID를 인식하지 못했어요"}</p>
+      ${f==="fail"?`<div class="fidacts"><button data-act="appleface">다시 시도</button><button data-act="applepin">암호 입력</button></div>`:""}</div>`:"";
+    const body=f==="pin"?`<div class="ipin"><p class="it" style="font-size:20px">iPhone 암호 입력</p><p class="iid" style="margin-bottom:0">Apple ID로 계속하려면 암호를 입력하세요</p>
+        <div class="pdots" aria-label="${S.applePin.length}자리 입력됨">${[0,1,2,3,4,5].map(i=>`<i class="${i<S.applePin.length?"on":""}"></i>`).join("")}</div>
+        <div class="pkeys">${["1","2","3","4","5","6","7","8","9"].map(k=>`<button data-act="pinkey" data-v="${k}">${k}</button>`).join("")}<button class="blank" data-act="pinback">취소</button><button data-act="pinkey" data-v="0">0</button><button class="blank" data-act="pinkey" data-v="del" aria-label="지우기">지우기</button></div></div>`
+      :ex?`<div class="iapp" aria-hidden="true"><svg viewBox="0 0 27 26" width="34" height="33"><circle cx="9.6" cy="13" r="6.9" fill="#E8442E"/><circle cx="17.4" cy="13" r="6.9" fill="#111" stroke="#fff" stroke-width="1.7"/></svg></div>
+        <p class="it">‘KNEWIT’에서 Apple ID를 사용하시겠습니까?</p><p class="iid">${APPLE_EMAIL}</p>
+        <button class="ibtn" data-act="appleface"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8V5.5A2.5 2.5 0 0 1 5.5 3H8M16 3h2.5A2.5 2.5 0 0 1 21 5.5V8M21 16v2.5a2.5 2.5 0 0 1-2.5 2.5H16M8 21H5.5A2.5 2.5 0 0 1 3 18.5V16M8.5 9v1.5M15.5 9v1.5M12 9v4.5h-1M9 16.2c1.7 1.3 4.3 1.3 6 0"/></svg>Face ID로 계속</button>${face}`
+      :`<div class="iapp" aria-hidden="true"><svg viewBox="0 0 27 26" width="34" height="33"><circle cx="9.6" cy="13" r="6.9" fill="#E8442E"/><circle cx="17.4" cy="13" r="6.9" fill="#111" stroke="#fff" stroke-width="1.7"/></svg></div>
+        <p class="it">Apple ID로 ‘KNEWIT’에 가입</p><p class="iid">${APPLE_EMAIL}</p>
+        <p class="ilbl">이름</p>
+        <div class="igrp"><label class="irow"><input id="aname" value="${esc(S.appleName==null?meName():S.appleName)}" aria-label="이름" autocomplete="name"></label></div>
+        <p class="ilbl">이메일</p>
+        <div class="igrp" role="radiogroup" aria-label="이메일">
+          <button class="irow" role="radio" aria-checked="${!S.appleHide}" data-act="applehide" data-v="share"><span>나의 이메일 공유<small>${APPLE_EMAIL}</small></span>${!S.appleHide?`<span class="ick">✓</span>`:""}</button>
+          <button class="irow" role="radio" aria-checked="${!!S.appleHide}" data-act="applehide" data-v="hide"><span>나의 이메일 가리기<small>전달: 개인 이메일 주소로 전달</small></span>${S.appleHide?`<span class="ick">✓</span>`:""}</button>
+        </div>
+        <button class="ibtn" data-act="appleface"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8V5.5A2.5 2.5 0 0 1 5.5 3H8M16 3h2.5A2.5 2.5 0 0 1 21 5.5V8M21 16v2.5a2.5 2.5 0 0 1-2.5 2.5H16M8 21H5.5A2.5 2.5 0 0 1 3 18.5V16M8.5 9v1.5M15.5 9v1.5M12 9v4.5h-1M9 16.2c1.7 1.3 4.3 1.3 6 0"/></svg>Face ID로 계속</button>
+        <button class="ilink" data-act="applepin">암호로 계속</button>${face}`;
+    mountSheet(host,`<div class="osdim" aria-hidden="true"></div>
+    <div class="sheet iossheet" role="dialog" aria-modal="true" tabindex="-1" aria-label="Apple로 로그인">
+      <div class="ish"><b><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.1 5.7c.6-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>Apple로 로그인</b><button class="ix" data-act="applex" aria-label="취소">${IC.x}</button></div>
+      <div class="sbody">${body}</div></div>`);
     return;
   }
   if(S.sheet==="blockcf"){
@@ -4189,13 +4343,13 @@ function renderSheet(){
       <div class="sbody">
         <div class="igroup" style="margin:0">
           ${r("서비스 이용약관","필수",true,null,"tos")}
-          ${r("위치기반서비스 이용약관","선택",S.consent.loc,null,"loc")}
+          ${r("위치기반서비스 이용약관","선택",S.consent.loc,S.locAt,"loc")}
           ${r("혜택·이벤트 알림 (광고)","선택",S.consent.mkt,S.mktAt,"mkt")}
           ${r("친구에게 내 장소 공개","선택",S.consent.share,S.shareAt,"share")}
           ${r("결제내역 조회·수집","카드 연결",S.linked&&S.consent.pay,null,"pay")}
         </div>
-        ${(S.consentLog||[]).length?`<p class="ghead" style="margin-top:14px">철회 · 재동의 기록</p><div class="igroup" style="margin:0">${S.consentLog.slice().reverse().map(x=>`<div><span>${x.k==="share"?"친구에게 내 장소 공개":"결제내역 조회·수집"}</span><span class="v">${x.what} · ${x.at}</span></div>`).join("")}</div>`:""}
-        <p class="agnote">선택 항목은 설정에서 언제든 끌 수 있어요. 친구 공개는 ‘안 보여주기’로 돌리면 동의가 철회되고, 다시 켤 때 동의를 다시 받아요. 결제내역 동의는 마지막 카드사를 해제하면 철회돼요.</p>
+        ${(S.consentLog||[]).length?`<p class="ghead" style="margin-top:14px">철회 · 재동의 기록</p><div class="igroup" style="margin:0">${S.consentLog.slice().reverse().map(x=>`<div><span>${x.k==="share"?"친구에게 내 장소 공개":x.k==="loc"?"위치기반서비스 이용약관":"결제내역 조회·수집"}</span><span class="v">${x.what} · ${x.at}</span></div>`).join("")}</div>`:""}
+        <p class="agnote">선택 항목은 설정에서 언제든 끌 수 있어요. 친구 공개는 ‘안 보여주기’로 돌리면 동의가 철회되고, 다시 켤 때 동의를 다시 받아요. 결제내역 동의는 마지막 카드사를 해제하면 철회돼요. 위치기반서비스는 설정에서 끄면 철회되고, 다시 켤 때 동의를 다시 받아요.</p>
       </div></div>`);
     return;
   }
@@ -4249,7 +4403,7 @@ function renderSheet(){
    통째로 다시 그리면 올라오는 애니메이션이 매번 재생돼 시트가 한 번 더 뜨는 것처럼 보인다. */
 function mountSheet(host,html){
   if(host.dataset.closing){ delete host.dataset.closing; host.style.pointerEvents=""; host.innerHTML=""; }
-  const cur=host.querySelector(".sheet");
+  const cur=host.querySelector(".sheet,.osalert");
   if(!cur||host.dataset.sheet!==S.sheet){ host.innerHTML=html; host.dataset.sheet=S.sheet; return; }
   const tmp=document.createElement("div"); tmp.innerHTML=html;
   const nh=tmp.querySelector(".shead b"), oh=host.querySelector(".shead b"); if(nh&&oh) oh.innerHTML=nh.innerHTML;
@@ -4258,6 +4412,7 @@ function mountSheet(host,html){
   if(nb&&ob){ const st=ob.scrollTop; ob.innerHTML=nb.innerHTML; ob.scrollTop=st; }
 }
 document.addEventListener("input",e=>{
+  if(e.target&&e.target.id==="aname"){ S.appleName=e.target.value; return; }   // Apple 시트 이름 — 다시 그리지 않는다
   if(e.target&&(e.target.id==="kbno"||e.target.id==="kbpw")){
     e.target.value=e.target.value.replace(/\D/g,""); if(e.target.id==="kbno") S.kbNo=e.target.value; else S.kbPw=e.target.value;
     const b=document.getElementById("kbgo"); if(b) b.disabled=!((S.kbNo||"").length>=15&&(S.kbPw||"").length===2); return;
@@ -4457,7 +4612,8 @@ function go(s){if(s==="S-MY-02"){S.myTab="friends";s="S-MY-01";}
 }
 function go_(s,scroll){ const tb=$("#tabbar"); if(tb) tb.classList.remove("mini");
   const from=S.screen; if(from==="S-HOME-02"&&s==="S-HOME-01") setTimeout(()=>{const b=document.querySelector(".phone .hsfilter"); if(b) b.focus({preventScroll:true});},0);
-  if(s==="S-HOME-02"&&S.screen!=="S-HOME-02"){ S.fEnter=true; S.fBak={f:new Set(S.filters),st:S.strict,more:S.more||0}; } S.screen=s;$("#viewport").scrollTop=0;document.querySelectorAll(".phone .flash").forEach(x=>x.remove());render(); if(scroll) $("#viewport").scrollTop=scroll;}
+  if(s==="S-HOME-02"&&S.screen!=="S-HOME-02"){ S.fEnter=true; S.fBak={f:new Set(S.filters),st:S.strict,more:S.more||0}; } S.screen=s; if(s==="S-HOME-01"&&!S.consent.loc&&!S.locPrompted&&!S.sheet){ S.locPrompted=true; S.sheet="locuse"; }   // 지도에 처음 들어갈 때 위치 사용 시트 (v3.10 추가분)
+  $("#viewport").scrollTop=0;document.querySelectorAll(".phone .flash").forEach(x=>x.remove());render(); if(scroll) $("#viewport").scrollTop=scroll;}
 
 /* 바텀시트 드래그 — 헤더를 끌어 정지점 사이를 오간다(네이버 지도식) */
 let sheetDragged=false;
@@ -4579,8 +4735,7 @@ function openCtx(row,id){
   setTimeout(()=>{const b=wrap.querySelector(".ctxmenu button"); if(b) b.focus({preventScroll:true});},0);
 }
 /* 불러오기 화면은 진행률 때문에 130ms마다 다시 그려진다 — 누르는 사이 버튼이 바뀌어 click이 사라지지 않게 누르는 순간 처리 (v3.4.3) */
-document.addEventListener("pointerdown",e=>{ const b=e.target.closest&&e.target.closest('.phone [data-act="notiask"]'); if(!b||S.notiAsked) return;
-  S.notiAsked=true; S.toast="알림 권한을 요청합니다"; render(); });
+document.addEventListener("pointerdown",e=>{ const b=e.target.closest&&e.target.closest('.phone [data-act="notiask"]'); if(!b||S.notiAsked) return; askNoti(); });
 /* 당겨서 새로고침 — 내 장소 시트 목록 맨 위에서 아래로 70px */
 (()=>{let d=null;
   document.addEventListener("pointerdown",e=>{ const b=e.target.closest('.homesheet[data-sheet="places"] .hsbody'); if(!b||b.scrollTop>0||!S.linked||S.placesFilter!=="방문") return;
@@ -4650,7 +4805,28 @@ document.addEventListener("click",e=>{
     navFrom={ava:av2?av2.getBoundingClientRect():null, el:b.getBoundingClientRect(), sheetTop:hs?hs.getBoundingClientRect().top:null}; }
   switch(a){
     case "go": go(v); break;
-    case "login": S.issuer=null; go("S-ONB-02"); break;
+    case "login":
+      if(v==="apple"){ S.sheet="apple"; S.appleFace=null; S.applePin=""; render(); break; }   // Apple은 시스템 시트를 거친다 (S-ONB-01a)
+      S.acct={...ACCT0}; loginDone(); break;
+    case "applex": S.sheet=null; S.appleFace=null; render(); break;   // iOS 취소는 오류가 아니다 — 토스트 없이 S-ONB-01로
+    case "applehide": S.appleHide=v==="hide"; render(); break;
+    case "appleface": S.appleFace="scan"; render(); setTimeout(faceResult,1000); break;
+    case "applepin": S.appleFace="pin"; S.applePin=""; render(); break;
+    case "pinback": S.appleFace=null; S.applePin=""; render(); break;
+    case "pinkey": if(S.appleFace!=="pin") break; if(v==="del") S.applePin=S.applePin.slice(0,-1); else if(S.applePin.length<6) S.applePin+=v;
+      if(S.applePin.length===6) appleOk(); else render(); break;   // 아무 숫자나 6개면 통과
+    case "sessionlogin": S.sessionBack=S.errFrom||"S-HOME-01"; S.appleUser="existing"; S.memberKeep=null; S.err=null; go("S-ONB-01"); break;
+    case "locagree": S.consent.loc=true; S.locAt=`${today()} ${hhmm(SRV.now())}`; logConsent("loc",(S.consentLog||[]).some(x=>x.k==="loc")?"재동의":"동의"); S.sheet=null;
+      if(useLoc()){ if(S.screen==="S-HOME-01") meHere(); else { S.toast="위치를 쓸게요"; render(); } } break;
+    case "locpick": S.sheet=S.screen==="S-HOME-01"?"areapick":null; render(); break;   // 위치 약관은 미동의 그대로
+    case "locskip": S.sheet=null; render(); break;
+    case "oslocans": { const home=S.screen==="S-HOME-01";
+      if(v==="deny"){ S.os.loc="denied"; S.sheet=home?"areapick":null; render(); break; }   // 거부면 동네 직접 고르기
+      S.os.loc=!S.osPrecise?"approx":v==="once"?"once":"granted"; S.sheet=null;
+      if(home) meHere(); else { S.toast=S.os.loc==="approx"?"대략적인 위치를 쓸게요":"위치를 쓸게요"; render(); } break; }
+    case "osprec": S.osPrecise=!S.osPrecise; render(); break;
+    case "osnotians": S.os.noti=v==="allow"?"granted":"denied"; S.sheet=null; if(v==="allow"){ S.notiAsked=true; S.notiInfo=true; } render(); break;
+    case "osopen": S.sheet=null; S.toast="설정 앱의 KNEWIT 화면을 엽니다"; render(); break;
     case "browsestart": browseStart(); break;
     case "reauth": S.reauth=true; S.linkFrom=S.screen; S.issuer=v||S.issuer||curCard(); S.idVal=""; S.pwVal=""; S.authErr=null; S.authTry=0; S.sheet=null; go("S-ONB-04"); break;   // 카드사별 재인증 — 카드사 선택 · 동의 없이 로그인으로 (v3.8 · v3.9 B1)
     case "link":
@@ -4665,14 +4841,14 @@ document.addEventListener("click",e=>{
       if(S.issuer==="KB국민카드"&&S.pwVal==="0000"&&!S.kbHoldOk){ S.kbNo=""; S.kbPw=""; S.sheet="kbhold"; render(); break; }   // 실제로는 CODEF CF-12108(카드소지확인 페이지 이동)이 올 때만
       S.authErr=null; S.authTry=0; S.pwVal=""; if(S.reauth){ finishReauth(); break; } startSync(); break;
     case "consent": S.consent[v]=!S.consent[v]; render(); break;
-    case "consentall": { const on=S.consent.age&&S.consent.req&&S.consent.loc&&S.consent.mkt; S.consent.age=S.consent.req=S.consent.loc=S.consent.mkt=!on; render(); break; }
-    case "permok": S.sheet=null; if(S.consent.mkt){ S.mktAt=today(); S.toast=`${S.mktAt} 혜택 알림 수신에 동의했어요`; }
+    case "consentall": { const on=S.consent.age&&S.consent.req&&S.consent.mkt; S.consent.age=S.consent.req=S.consent.mkt=!on; render(); break; }
+    case "agreed": S.sheet=null; if(S.consent.mkt){ S.mktAt=today(); S.toast=`${S.mktAt} 혜택 알림 수신에 동의했어요`; }
       if(S.prfReturn){ S.prfReturn=false; S.prf="stranger"; S.prfSent=false; S.toast="가입했어요 · 친구 요청을 보낼 수 있어요"; go("S-PRF-01"); break; }   // 프로필 링크로 가입하면 그 화면으로 돌아온다 (v3.10)
       go("S-ONB-03"); break;
     case "prfstart": S.prfReturn=true; go("S-ONB-01"); break;
     case "prfreq": S.prfSent=true; S.toast="친구 요청을 보냈어요"; render(); break;
     case "mkttoggle": S.consent.mkt=!S.consent.mkt; S.mktAt=today(); S.toast=`${S.mktAt} 혜택 알림 수신${S.consent.mkt?"에 동의했어요":"을 거부했어요"}`; render(); break;
-    case "notiinfo": S.notiInfo=!S.notiInfo; render(); break;
+    case "notiinfo": if(S.notiInfo===false&&S.os.noti!=="granted"){ askNoti(true); break; } S.notiInfo=!S.notiInfo; render(); break;   // 켤 때 OS 권한이 없으면 같은 규칙으로 (FN-SE-050)
     case "block": blockFriend(v); break;
     case "unblock": S.blocked=(S.blocked||[]).filter(x=>x.id!==v); S.toast="차단을 풀었어요. 친구는 다시 요청해야 해요"; render(); break;
     case "blkopen": S.blkOpen=!S.blkOpen; render(); break;
@@ -4819,8 +4995,8 @@ document.addEventListener("click",e=>{
     case "toast": S.toast=v; render(); break;
     case "acctsheet": S.sheet=v; S.wdAgree=false; render(); break;
     case "wdagree": S.wdAgree=!S.wdAgree; render(); break;
-    case "logout": S.sheet=null; S.entry="organic"; S.requests=JSON.parse(JSON.stringify(REQ0)); resetAll(); S.toast="로그아웃했어요"; render(); break;
-    case "withdraw": if(!S.wdAgree) break; S.sheet=null; S.entry="organic"; S.requests=JSON.parse(JSON.stringify(REQ0)); resetAll(); S.toast="탈퇴가 완료됐어요"; render(); break;
+    case "logout": { const keep={consent:{...S.consent},locAt:S.locAt,consentLog:S.consentLog,locPrompted:S.locPrompted,acct:{...S.acct}}; S.sheet=null; S.entry="organic"; S.requests=JSON.parse(JSON.stringify(REQ0)); resetAll(); S.memberKeep=keep; S.appleUser="existing"; S.toast="로그아웃했어요"; render(); break; }   // 다시 로그인하면 기존 회원 — 약관을 건너뛴다
+    case "withdraw": { if(!S.wdAgree) break; const ap=S.acct.provider==="apple"; if(ap) SRV.revoked=(SRV.revoked||0)+1; S.sheet=null; S.entry="organic"; S.requests=JSON.parse(JSON.stringify(REQ0)); resetAll(); S.toast=ap?"탈퇴가 완료됐어요 · Apple 로그인 연결도 끊었어요":"탈퇴가 완료됐어요"; render(); break; }   // Apple 토큰 폐기(revoke) (FN-SE-040)
     case "savepick": S.place=v||S.place; S.sheet="savepick"; S.sfname=""; render(); break;
     case "savemove": {
       const id=S.place, to=S.folders.find(x=>x.id===v); if(!to) break;
@@ -4857,7 +5033,7 @@ document.addEventListener("click",e=>{
     case "openincl": S.openIncl=!S.openIncl; S.excluded.clear(); render(); break;
     case "plinkcopy": S.sheet=null; S.toast="프로필 링크를 복사했어요"; render(); break;
     case "qundo": { const q=S.queue.find(o=>o.key===v); if(q) q.done=false; restoreRules(S.undoRules); S.undoRules=null; undoPendAll();   /* 그 동작이 만든 규칙도 지운다 (v3.8) */ S.toast="확인할 일에 다시 넣었어요"; go("S-HOME-03"); break; }
-    case "err": S.err=v; if(v==="dormant") SRV.autoPause("dormant"); go("S-CMN-01"); break;
+    case "err": S.errFrom=S.screen; S.err=v; if(v==="dormant") SRV.autoPause("dormant"); go("S-CMN-01"); break;
     case "pf": S.placesFilter=v; if(S.placesSheet==="peek") S.placesSheet="full"; render(); break;   // 홈 세그먼트처럼 — 접힌 시트에서 고르면 펼쳐서 목록을 보여 준다
     case "plssheet": S.placesSheet=S.placesSheet==="peek"?"full":"peek"; render(); break;
     // 내 장소 ↔ 친구 — 시트 내용과 지도 핀이 함께 갈린다
@@ -4896,11 +5072,10 @@ document.addEventListener("click",e=>{
     case "sheetclose": S.sheet=null; S.qmode=null; render(); break;
     case "pickarea": { const A=AREAS[v]; S.anchor=null; S.area=v; S.areaAuto=false; S.areaOut=false; S.more=0; S.excluded.clear(); S.sheet=null;
       S.z=1; S.px=-A.ax*MAPC.K; S.py=A.ay*MAPC.K; S.toast=A.name+" 기준으로 다시 찾았어요"; render(); break; }
-    case "pickloc": S.anchor=null; S.area="yeonnam"; S.areaAuto=true; S.areaOut=false; S.more=0; S.excluded.clear(); S.sheet=null; S.z=1; S.px=0; S.py=0;
-      S.toast="현재 위치에서 다시 찾았어요"; render(); break;
+    case "pickloc": if(!useLoc()) break; S.anchor=null; S.area="yeonnam"; S.areaAuto=true; S.areaOut=false; S.more=0; S.excluded.clear(); S.sheet=null; S.z=1; S.px=0; S.py=0;
+      S.toast=S.os.loc==="approx"?"대략적인 위치로 찾았어요":"현재 위치에서 다시 찾았어요"; render(); break;
     // 직접 고른 동네를 풀고 다시 현재 위치 기준으로
-    case "backtome": S.anchor=null; S.area="yeonnam"; S.areaAuto=true; S.more=0; S.excluded.clear(); S.z=1;S.px=0;S.py=0;
-      S.toast="현재 위치에서 다시 찾았어요"; render(); break;
+    case "backtome": if(!useLoc()) break; meHere(); break;   // 내 위치 버튼 — 약관 · iOS 권한 상태를 읽어 같은 규칙으로 (v3.10 추가분)
     // 지도를 옮긴 뒤 그 자리에서 다시 찾기 — 같은 검색 환경을 그대로 재실행한다
     case "researchhere": {   // 지도는 그 자리에 두고, 지도 중심 좌표를 새 기준점으로 같은 조건을 다시 돌린다 (v3.4.3)
       const v2=viewCenterArea(); if(!v2.area) break;
@@ -4949,8 +5124,7 @@ document.addEventListener("click",e=>{
       if(bad.length){ S.toast=`${bad[0].n} · 다시 인증해야 불러올 수 있어요`; S.toastAct={label:"재인증",act:"reauth",v:bad[0].n}; }   // UC-48
       else S.toast="멈춘 동안의 결제도 함께 불러왔어요"; render(); break; }
     case "unlinkcard": S.unlinkCard=v; S.sheet="unlink"; render(); break;
-    case "under14": Object.keys(S.consent).forEach(k=>S.consent[k]=false); S.toast="만 14세 이상만 가입할 수 있어요. 로그인 연결을 해제했어요"; go("S-ONB-01"); break;
-    case "notiask": S.notiAsked=true; S.toast="알림 권한을 요청합니다"; render(); break;
+    case "notiask": askNoti(); break;
     case "visitfix": S.fixLog=v; S.sheet="visitfix"; render(); break;
     case "visitmove": S.qmode="fix"; S.sheet="qsearch"; S.sheetQ=""; render(); break;
     case "visitnot": { const v0=VISITS.find(x=>x.id===S.place), e=v0&&v0.log.find(l=>l.lid===S.fixLog); if(!e){ S.sheet=null; render(); break; }
@@ -4965,7 +5139,7 @@ document.addEventListener("click",e=>{
       if(cardNames().length>1){ delete S.cards[un]; dropCard(un); S.sheet=null; S.toast=`${un} 연결을 해제했어요`; render(); break; } }
       S.consent.pay=false; logConsent("pay","철회");   // 마지막 카드사 해제 = 결제내역 동의 철회. 다시 연결하면 동의 시트부터 (v3.10 UC-47)
       S.cards={}; S.merchantRules={}; S.unlinkAsk=false; S.sheet=null; setTimeout(()=>{const b=document.querySelector('.phone [data-act="link"]'); if(b) b.focus({preventScroll:true});},300); S.paused=false; S.toast="카드 연결을 해제하고 방문 기록을 지웠어요"; setMode(S.noFriends?"browse0":"browse1"); render(); break;
-    case "loctoggle": S.consent.loc=!S.consent.loc; render(); break;
+    case "loctoggle": if(S.consent.loc){ S.consent.loc=false; logConsent("loc","철회"); S.areaAuto=false; S.toast="위치기반서비스 동의를 철회했어요"; render(); } else { S.sheet="locuse"; render(); } break;   // 끄기 = 약관 동의 철회, 켜기 = S-HOME-01b (v3.10 추가분)
   }
 });
 document.addEventListener("input",e=>{
@@ -4995,14 +5169,52 @@ document.addEventListener("keydown",e=>{
     return; }
   if(e.key==="Enter"&&(e.target.id==="cid"||e.target.id==="cpw")){const g=document.getElementById("authgo"); if(g&&!g.disabled) g.click();}
 });
+/* 위치 쓰기 — 내 위치 버튼 · 동네 선택의 현재 위치 · 설정 토글이 모두 같은 규칙 (v3.10 추가분) */
+function useLoc(){
+  if(!S.consent.loc){ S.sheet="locuse"; render(); return false; }            // 약관 X → S-HOME-01b (iOS 권한이 있어도 좌표를 보내지 않는다)
+  if(S.os.loc==="unasked"){ S.osPrecise=true; S.sheet="oslocpop"; render(); return false; }
+  if(S.os.loc==="denied"){ S.osSet="loc"; S.sheet="osset"; render(); return false; }   // 거부 뒤에는 팝업이 다시 뜨지 않는다
+  return true;
+}
+function meHere(){ S.anchor=null; S.area="yeonnam"; S.areaAuto=true; S.more=0; S.excluded.clear(); S.z=1;S.px=0;S.py=0;
+  S.toast=S.os.loc==="approx"?"대략적인 위치로 찾았어요":"현재 위치에서 다시 찾았어요"; render(); }
+function askNoti(fromSet){
+  if(S.sheet) return;
+  if(S.os.noti==="unasked"){ S.sheet="osnotipop"; render(); return; }
+  if(S.os.noti==="denied"){ S.osSet="noti"; S.sheet="osset"; render(); return; }
+  if(fromSet) S.notiInfo=true; else S.notiAsked=true; render();
+}
+/* 로그인 마침 — 처음 가입은 약관으로, 기존 회원은 약관을 건너뛰고 원래 있던 곳으로 */
+function loginDone(){
+  if(S.appleUser!=="existing"){ S.issuer=null; go("S-ONB-02"); return; }
+  const k=S.memberKeep; S.memberKeep=null;
+  if(k){ S.consent={...k.consent}; S.locAt=k.locAt; S.consentLog=k.consentLog||[]; S.locPrompted=k.locPrompted; if(k.acct&&k.acct.provider===S.acct.provider) S.acct={...k.acct}; }
+  S.consent.age=S.consent.req=true; S.toast="다시 로그인했어요";
+  if(S.prfReturn){ S.prfReturn=false; S.prf="stranger"; S.prfSent=false; go("S-PRF-01"); return; }
+  if(S.sessionBack){ const b=S.sessionBack; S.sessionBack=null; S.tab=b.startsWith("S-MY")?"my":b.startsWith("S-PLS")?"places":"home"; go(b); return; }
+  browseStart();
+}
+function faceResult(){ if(S.sheet!=="apple"||S.appleFace!=="scan") return;
+  if(S.faceSim==="cancel"){ S.sheet=null; S.appleFace=null; render(); return; }   // 취소 — 조용히 S-ONB-01
+  if(S.faceSim==="fail"){ S.appleFace="fail"; render(); return; }
+  appleOk(); }
+function appleOk(){ S.appleFace="ok"; render(); setTimeout(()=>{ if(S.sheet==="apple"&&S.appleFace==="ok") appleDone(); },600); }
+function appleDone(){
+  const ex=S.appleUser==="existing";
+  S.acct=ex?(S.acct.provider==="apple"?S.acct:{provider:"apple",name:meName(),email:APPLE_EMAIL,hide:false})   // 기존 회원 — Apple은 식별자만 준다. 이름 · 이메일은 서버에 저장한 값
+    :{provider:"apple",name:(S.appleName||"").trim()||"김겨레",hide:!!S.appleHide,email:S.appleHide?RELAY_EMAIL:APPLE_EMAIL};
+  if(ex&&S.memberKeep&&S.memberKeep.acct&&S.memberKeep.acct.provider==="apple") S.acct={...S.memberKeep.acct};
+  S.sheet=null; S.appleFace=null; S.applePin=""; loginDone();
+}
 function browseStart(){
   S.linked=false; S.tab="home"; S.homeSeg=S.entry==="invite"&&inviterOpen()?"friends":"reco"; S.homeSheet="peek"; S.err=null; S.linkFrom=null;
   S.noFriends=S.entry!=="invite"; S.friendLayer=S.entry==="invite"&&inviterOpen()?FRIENDS[0].id:null;
   go("S-HOME-01");
 }
 const REQ0=JSON.parse(JSON.stringify(S.requests));
+function grantOs(){ if(S.osTouched) return; if(S.os.loc==="unasked") S.os.loc="granted"; if(S.os.noti==="unasked") S.os.noti="granted"; }   // 인스펙터 점프 — 권한 스위치를 건드리지 않았으면 허용으로
 function setMode(m){
-  S.consent.age=true; S.consent.req=true; S.consent.loc=true;
+  S.consent.age=true; S.consent.req=true; S.consent.loc=true; S.locPrompted=true; grantOs();
   if(m==="linked"){ S.linked=true; S.noFriends=false; S.consent.pay=true; S.issuer=S.issuer||"KB국민카드"; ensureCard(S.issuer); S.requests=JSON.parse(JSON.stringify(REQ0)); }
   else { S.linked=false; S.cards={}; S.noFriends=(m==="browse0"); S.requests=m==="browse0"?[]:JSON.parse(JSON.stringify(REQ0)); if(m==="browse0") S.friendLayer=null; }
   FRIENDS.length=0; if(m!=="browse0") FRIENDS.push(...(S.entry==="invite"?[FRIENDS0[0]]:FRIENDS0));
@@ -5011,7 +5223,7 @@ function setMode(m){
 const LINKED_ONLY=["S-HOME-04","S-HOME-04a","S-ONB-06"];
 function jumpTo(id,v){
   S.sheet=null; S.sortPop=false; S.err=null; S.toast=null; S.linkFrom=null;
-  if(!id.startsWith("S-ONB")&&id!=="S-INV-01"&&!(id==="S-PRF-01"&&v==="guest")){ S.consent.age=true; S.consent.req=true; S.consent.loc=true; }
+  if(!id.startsWith("S-ONB")&&id!=="S-INV-01"&&!(id==="S-PRF-01"&&v==="guest")){ S.consent.age=true; S.consent.req=true; S.consent.loc=true; S.locPrompted=true; grantOs(); }
   if(v==="browsereco"){ v="reco"; if(S.linked){ const m=pickMode(["browse0","browse1"]); setMode(m);  } }
   const al=modesFor(id,v);
   if(al&&!al.includes(curMode())){ const m=pickMode(al); setMode(m);  }
@@ -5050,9 +5262,12 @@ function jumpTo(id,v){
       S.screen="S-PLC-01"; S.sheet="savepick"; S.sfname=""; render(); return; }
     case "S-PLS-02": S.searchBack="S-PLS-01"; S.importQ=""; S.fname=""; S.addMode="new"; break;
     case "S-MY-03": if(!FRIENDS.some(x=>x.id===S.friend)) S.friend=FRIENDS[0]&&FRIENDS[0].id; break;
-    case "S-ONB-02a": S.screen="S-ONB-02"; S.consent.age=S.consent.req=true; S.sheet="perms"; render(); return;
     case "S-MY-03a": case "S-MY-03b": S.tab="my"; if(!FRIENDS.some(x=>x.id===S.friend)) S.friend=FRIENDS[0]&&FRIENDS[0].id; S.screen="S-MY-03"; S.repWhy=null; S.repBlock=true; S.sheet=id==="S-MY-03a"?"blockcf":"report"; render(); return;
     case "S-MY-04a": S.tab="my"; S.searchBack="S-MY-01"; S.friendQ=""; S.screen="S-MY-04"; S.sheet="contacts"; render(); return;
+    case "S-ONB-01a": S.screen="S-ONB-01"; if(v==="new"||v==="existing") S.appleUser=v; S.appleFace=(v==="fail"||v==="pin")?v:null; S.applePin=""; S.sheet="apple"; render(); return;
+    case "S-HOME-01b": S.tab="home"; S.anchor=null; S.screen="S-HOME-01"; S.homeSeg="reco"; S.consent.loc=false; S.sheet="locuse"; render(); return;
+    case "OS-LOC": S.tab="home"; S.anchor=null; S.screen="S-HOME-01"; S.homeSeg="reco"; S.os.loc="unasked"; S.osTouched=true; S.osPrecise=true; S.sheet="oslocpop"; render(); return;
+    case "OS-NOTI": S.issuer=S.issuer||"하나카드"; S.os.noti="unasked"; S.osTouched=true; S.notiAsked=false; startSync(); S.sheet="osnotipop"; render(); return;
     case "S-ONB-04a": S.issuer="KB국민카드"; S.idVal="knewit_user"; S.pwVal=""; S.authErr=null; S.authTry=0; S.kbNo=""; S.kbPw=""; S.screen="S-ONB-04"; S.sheet="kbhold"; render(); return;
     case "S-CMN-02": S.tab="my"; S.screen="S-MY-05"; S.docBack=null; S.docId=v||"tos"; S.sheet="doc"; render(); return;
     case "S-MY-05e": S.tab="my"; S.screen="S-MY-05"; S.consent.share=false; S.shareBack=null; S.pendShare=()=>{S.share="repeat";}; S.sheet="sharecons"; render(); return;
@@ -5066,12 +5281,17 @@ function jumpTo(id,v){
     case "S-PRF-01": S.prf=v||"stranger"; S.prfSent=false; S.prfReturn=false;
       if(S.prf==="friend"){ const r=API.openProfile("friend"); S.friend=r.friend; S.friendFrom="S-HOME-01"; S.tab="my"; S.screen="S-MY-03"; render(); return; }   // 친구면 친구 프로필로
       break;
-    case "S-CMN-01": S.err=v||"sync"; if(S.err==="dormant") SRV.autoPause("dormant"); break;   // 휴면 = 자동 중단 (v3.10 UC-49)
+    case "S-CMN-01": S.errFrom=(S.screen.startsWith("S-ONB")||S.screen==="S-CMN-01"||S.screen==="S-INV-01")?"S-HOME-01":S.screen; S.err=v||"sync"; if(S.err==="dormant") SRV.autoPause("dormant"); break;   // 휴면 = 자동 중단 (v3.10 UC-49)
   }
   go(id);
 }
 document.querySelector(".insp").addEventListener("click",e=>{
-  const t=e.target.closest("[data-navtab],[data-setentry],[data-setmode],[data-jump]"); if(!t) return;
+  const t=e.target.closest("[data-navtab],[data-setentry],[data-setmode],[data-jump],[data-setos],[data-setacct],[data-setface],[data-reopen]"); if(!t) return;
+  if(t.dataset.setos){ const [k,val]=t.dataset.setos.split(":"); S.os[k]=val; S.osTouched=true; if(k==="noti"&&val!=="granted") S.notiAsked=false; render(); return; }
+  if(t.dataset.setacct){ S.appleUser=t.dataset.setacct; if(S.appleUser==="new") S.memberKeep=null; render(); return; }
+  if(t.dataset.setface){ S.faceSim=t.dataset.setface; render(); return; }
+  if(t.dataset.reopen){ const once=S.os.loc==="once"; if(once) S.os.loc="unasked"; if(["oslocpop","osnotipop"].includes(S.sheet)) S.sheet=null;   // 한 번 허용은 앱을 다시 열면 아직 안 물음
+    S.toast=once?"앱을 다시 열었어요 · 위치를 다시 물어요":"앱을 다시 열었어요"; if(S.linked) SRV.appOpen(); render(); return; }
   e.stopPropagation();   // 문서 전역 클릭(팝오버 닫기 등)으로 새지 않게
   if(t.dataset.navtab){ NAVTAB=t.dataset.navtab; renderInspector(); return; }
   if(t.dataset.setentry){
@@ -5122,7 +5342,7 @@ function finishReauth(){
   S.toast=dorm?`휴면을 풀었어요${kept?" · 멈춰 둔 카드사는 그대로예요":""}`:c.pauseBy==="user"?`${S.issuer} 다시 인증했어요 · 멈춰 둔 상태는 그대로예요`:`${S.issuer} 다시 인증했어요 · 빠진 결제도 불러왔어요`; if(b.startsWith("S-MY")) S.tab="my"; else if(b.startsWith("S-HOME")) S.tab="home"; go(b);
 }
 function startSync(){
-  S.linked=true; ensureCard(S.issuer,true); Object.assign(S.cards[S.issuer],{paused:false,pausedAt:null,pauseBy:null,auth:"ok",expired:false}); S.syncPct=0;   // 새로 연결한 카드사만 활성 — 다른 카드사의 멈춤은 그대로 (v3.10 UC-46) S.syncShown=0; go("S-ONB-05");
+  S.linked=true; ensureCard(S.issuer,true); Object.assign(S.cards[S.issuer],{paused:false,pausedAt:null,pauseBy:null,auth:"ok",expired:false}); S.syncPct=0; S.syncShown=0; go("S-ONB-05");   // 새로 연결한 카드사만 활성 — 다른 카드사의 멈춤은 그대로 (v3.10 UC-46)
   const iv=setInterval(()=>{
     S.syncPct=Math.min(100,S.syncPct+ (S.syncPct<70?4:3));
     if(S.screen!=="S-ONB-05"){clearInterval(iv);return;}
@@ -5143,9 +5363,10 @@ $("#pins").addEventListener("click",e=>{
   if(b) b.addEventListener("click",()=>{ const p=ph(); if(!p) return; p.classList.add("privacy"); setTimeout(()=>p.classList.remove("privacy"),1600); });
 })();
 sweepQueue();   // 앱을 열 때 N일 지난 확인 대기를 정리한다 (v3.9)
-window.KNEWIT_QA={ydAll,pendSame,openAt,BAR26,logConsent,sweepQueue,ydList,ruleGroups,placeRule,nowSlot,POLICY,mkVisit,placeMerchants,openAt,HOURS,S,SRV,API,QUEUE,VISITS,FRIENDS,FRIENDS0,scopeRows,sharedVisits,visibleFriendPlaces,friendShareIds,
+window.KNEWIT_QA={locUsable,precise,meName,meIni,useLoc,loginDone,ydAll,pendSame,openAt,BAR26,logConsent,sweepQueue,ydList,ruleGroups,placeRule,nowSlot,POLICY,mkVisit,placeMerchants,openAt,HOURS,S,SRV,API,QUEUE,VISITS,FRIENDS,FRIENDS0,scopeRows,sharedVisits,visibleFriendPlaces,friendShareIds,
   act(a,v){ const b=document.createElement("button"); b.dataset.act=a; if(v!=null) b.dataset.v=v; b.hidden=true; document.querySelector(".phone").appendChild(b); b.click(); b.remove(); }};
 function resetAll(){
+  S.acct={...ACCT0}; S.appleUser="new"; S.appleFace=null; S.applePin=""; S.appleName=null; S.appleHide=false; S.memberKeep=null; S.sessionBack=null; S.locPrompted=false; S.locAt=null; S.notiAsked=false;   // iOS 권한(S.os)은 기기 상태라 그대로
   S.anchor=null; S.paused=false; S.reauth=false; S.areaOut=false; S.notiAsked=false;
   S.accepted=[]; S.reqAll=false;
   S.noFriends=(S.entry!=="invite");
