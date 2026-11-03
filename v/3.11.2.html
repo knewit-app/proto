@@ -1544,13 +1544,23 @@ input,textarea{caret-color:var(--new)}
 .ogcard .og-btn{border-top:.5px solid var(--sep);padding:11px;text-align:center;font-size:var(--t-sub);font-weight:600;color:var(--ink)}
 #sheetroot .ogcard+.frtext{display:flex;margin:4px auto 0}
 /* 프로필 한 장 (v3.11.1) — 칩 · 숫자 줄 · 하이라이트 섹션 */
-.profhead .pchips{justify-content:center;margin:10px 0 0;gap:8px}
+.profhead .pchips{justify-content:flex-start;margin:10px 0 0;gap:8px}
 .profhead .pchips .chip{padding:5px 12px}
 .profhead .pchips .chip::after{inset:-6px 0}
 .phone .profhead{padding-bottom:10px}
-.phone .profhead>.ava{width:64px;height:64px}
-.phone .profhead h1{margin-top:8px}
+.phone .profhead .ptop>.ava{width:64px;height:64px;flex:none}
+.phone .profhead h1{margin-top:10px;font-size:var(--t-body);font-weight:600}
 .phone .profhead .bio{margin-top:6px}
+/* 인스타그램식 머리 (v3.11.2) — 사진 왼쪽, 숫자 오른쪽 위. 아래 내용은 왼쪽 정렬 */
+.profhead{align-items:stretch;text-align:left}
+.profhead .ptop{display:flex;align-items:center;gap:16px}
+.profhead .ptop .pstats{flex:1;justify-content:space-around;gap:0;margin:0}
+.profhead .pid{display:flex;flex-direction:column;min-width:0}
+.phone .profhead .pid h1{margin:0 0 2px}
+.profhead .handle{align-self:flex-start}
+.phone .apphead.profbar{padding-top:2px;margin-bottom:8px}
+.phone .apphead.profbar>.h1{font-size:var(--t-body)!important;font-weight:600;letter-spacing:-.01em;margin:0}
+.profactions:has(>.cta:only-child){grid-template-columns:1fr}
 .profhead .pchips .chip[hidden]{display:none}
 .profhead .pchips .pmore{color:var(--ink-3)}
 .profhead .pghost{margin:10px 0 0;font-size:var(--t-fn);color:var(--ink-3)}
@@ -2088,7 +2098,7 @@ const SCREENS={
   "S-HOME-03":{n:"확인할 일",fn:["FN-SY-080", "FN-FR-050"],note:"매칭 정확도가 100%일 수 없으므로 확인 큐는 선택이 아니라 필수 안전장치입니다. 방문 확인이 주 업무라 위에 둡니다. 친구 요청은 한 줄 행(아바타 · 이름 · @아이디 · 함께 아는 친구, [수락] [✕])이고, 공개 범위는 묻지 않습니다 — 수락하면 같은 자리에 ‘친구가 됐어요 · 내 장소는 안 보여요 [공개 범위]’가 남고, [공개 범위]는 친구 시트를 엽니다. 요청이 3건 이상이면 2건만 보이고 ‘모두 보기’로 펼칩니다(critique 18). v3.9: 자동 확정된 방문도 다음 날 <b>‘어제 간 곳 · 또 가고 싶나요?’</b>로 묶어서 묻습니다(또 가고 싶어요 · 그냥 근처라 갔어요 · 건너뛰기). 알림은 하루 1회 묶음(COM-14)에 들어가고 따로 보내지 않습니다. 확인 대기는 <b>N일(기본안 14일)</b>이 지나면 1순위 후보 신뢰도가 기준(0.8) 이상이면 자동 확정, 미만이면 미기록으로 닫습니다."},
   "S-HOME-04":{n:"방문 장소 확인",fn:["FN-SY-081", "FN-SY-090"],note:"확정 직후 <b>“또 가고 싶은 곳인가요?”</b> 한 탭이 붙습니다. 별도 온보딩 없이 접근성 방문과 선호 방문을 가르는 최소 비용 신호입니다. v3.9: 같은 질문을 확인할 일의 ‘어제 간 곳’ 묶음과 장소 상세의 내 방문 기록에서도 답할 수 있습니다."},
   "S-PLC-01":{n:"장소 상세",fn:["FN-RE-080", "FN-RE-120", "FN-RE-150", "FN-PL-010", "FN-PL-020", "FN-PL-030", "FN-PL-040", "FN-PL-050", "FN-PL-070", "FN-PL-090"],note:"사진은 저장 가능한 소스가 없어 <b>미결 이슈 #1</b>입니다. 영업 표시는 <b>외부 영업시간 데이터만</b> 씁니다 — 있음(지금 영업중 / 영업 시간 아님) · 없음(영업 정보 없음). 결제 시간대로 추정하던 로직은 v3.7에서 뺐습니다. v3.8: 영업 표시는 시간대 칩과 관계없이 <b>항상 기기의 현재 시각</b>으로 판단하고, 영업 시간이 아니면 이유(브레이크타임 · 요일 휴무)를 붙입니다. 내 방문 기록은 ‘최근 6개월 N번 · 전체 M번’으로 보여 줍니다 — 단골 · 공개 판정은 6개월 횟수(K3), 전체 이력은 이 화면에서만 씁니다. v3.10.1: 장소를 밖으로 보내는 경로는 <b>카카오톡 공유(S-PLC-01c) 하나</b>입니다. 제목 줄에는 저장(별)만 두고, 버튼 줄은 ‘카톡으로 공유’(왼쪽) · 길찾기(오른쪽)입니다. iOS 기본 공유 시트와 링크 복사는 두지 않습니다. v3.9: 내 방문 기록에서 ‘또 가고 싶은 곳인가요?’에 답할 수 있고, 자동 정리로 확정된 방문은 ‘자동 정리’로 표시해 고칠 수 있습니다. 미기록으로 정리된 결제는 1순위 후보 장소에 ‘방문으로 기록’ 행으로 남습니다."},
-  "S-MY-01":{n:"프로필",fn:["FN-RE-150", "FN-TA-010"],note:"탭 없이 <b>한 장</b>입니다(v3.11.1). 위에서부터 머리(아바타 · 이름 · @아이디 · 한 줄 소개) → 취향 칩(가운데, 최대 두 줄, 넘치면 ‘+N’) → 숫자 줄(가본 곳 · 친구, 누르면 각 목록) → 버튼 둘 → 하이라이트. 칩과 한 줄 소개는 추천 내부가 쓰는 Taste Profile을 그대로 보여 줍니다. 관계는 양방향 친구 하나라 숫자 줄도 ‘친구’ 한 칸입니다. 구경 모드에서는 칩 자리에 흐린 예시와 ‘카드 연결’, 숫자 줄은 친구만, 하이라이트는 빈 상태입니다."},
+  "S-MY-01":{n:"프로필",fn:["FN-RE-150", "FN-TA-010"],note:"탭 없이 <b>한 장</b>입니다(v3.11.1). 오른쪽 위에 공유 · 설정 아이콘. 머리는 인스타그램처럼 아바타 왼쪽 · 숫자(가본 곳 · 친구, 누르면 각 목록) 오른쪽이고, 아래로 이름 · @아이디 · 한 줄 소개 → 취향 칩(왼쪽 정렬, 최대 두 줄, 넘치면 ‘+N’) → ‘친구 추가’ → 하이라이트. 공유 아이콘은 카드를 연결한 뒤에만 보입니다. 칩과 한 줄 소개는 추천 내부가 쓰는 Taste Profile을 그대로 보여 줍니다. 관계는 양방향 친구 하나라 숫자 줄도 ‘친구’ 한 칸입니다. 구경 모드에서는 칩 자리에 흐린 예시와 ‘카드 연결’, 버튼은 카드 연결 · 친구 추가 둘, 숫자는 친구만, 하이라이트는 빈 상태입니다."},
   "S-MY-02":{n:"친구 목록",fn:["FN-FR-030"],note:"프로필 숫자 줄의 ‘친구 N’에서 들어옵니다. 맨 위 검색칸은 이름 · 아이디로 바로 거릅니다. 받은 요청이 있으면 목록 위 ‘받은 친구 요청 N’ 행이 확인할 일(S-HOME-03)로 보냅니다. 행을 누르면 친구 프로필, 뒤로 오면 이 목록입니다. 차단 · 친구 끊기 뒤에도 이 목록으로 돌아옵니다."},
   "S-PLS-01":{n:"내 장소",fn:["FN-RE-150", "FN-PL-051"],note:"좌표는 전부 <b>자체 POI 원장</b>에서 옵니다. 지도 SDK 응답을 저장할 수 없기 때문에, 이 화면은 우리가 가진 좌표를 우리가 직접 그리는 구조여야 합니다. 좌표를 확보하지 못한 장소는 지도에 찍히지 못하고 리스트에만 남습니다. 저장 탭의 목록에는 폴더만 둡니다 — 목록 추가(새 목록 · 지도 앱에서 가져오기)는 정렬 줄 오른쪽 ‘＋ 추가’ 메뉴로 모아(정렬은 왼쪽), 명령이 데이터 행처럼 보이지 않게 합니다. 폴더가 0~1개일 때만 목록 아래에 가져오기 안내 카드를 둡니다(한두 번 쓰는 기능이 매일 보는 목록에 상주하지 않게). 접힌 시트의 제목 옆에 목록 수 · 장소 수를 보여 줍니다. v3.8: 방문 핀의 숫자와 단골 표식은 <b>최근 6개월 횟수</b>입니다(K3). 전체 이력은 장소 상세에서만 보입니다."},
   "S-MY-03":{n:"친구 프로필",fn:["FN-PL-070", "FN-FR-031", "FN-FR-032", "FN-FR-033"],note:"내 프로필과 같은 문법입니다 — 탭 없이 취향 칩은 한 줄 소개 아래, 자주 가는 곳은 아래 섹션(v3.11.1). 친구의 친구 수 · 친구 목록은 보여 주지 않습니다. 친구의 공개 범위를 그대로 따릅니다. 결제 기반 방문 이력은 민감 정보라, 공개 범위 설정(FN-SE-020)이 친구 기능보다 <b>먼저</b> 존재해야 합니다."},
@@ -3727,29 +3737,31 @@ V["S-MY-01"]=()=>!S.linked?myBrowse():myLinked();
 /* 프로필 한 장 (v3.11.1) — 머리 · 취향 칩 · 숫자 줄 · 버튼 둘 · 하이라이트. 탭 없음. */
 const myFriends=()=>S.noFriends&&!S.linked?[]:FRIENDS;
 const statBtn=(n,l,act,v)=>`<button class="pstat" data-act="${act}"${v?` data-v="${v}"`:""}><b>${n}</b><span>${l}</span></button>`;
+/* 프로필 탭 머리 — 작은 제목, 오른쪽 위에 공유 · 설정 (v3.11.2) */
 const profApphead=()=>`
-  <div class="apphead">
-    <h1 class="h1" style="font-size:var(--t-t2);margin:0">프로필</h1>
-    <span class="hactions"><button class="iconbtn" data-act="go" data-v="S-MY-05" aria-label="설정">${ICON.gear}</button></span>
+  <div class="apphead profbar">
+    <h1 class="h1">프로필</h1>
+    <span class="hactions">${S.linked?`<button class="iconbtn" data-act="sheet" data-v="plink" aria-haspopup="dialog" aria-label="프로필 공유">${IC.share}</button>`:""}<button class="iconbtn" data-act="go" data-v="S-MY-05" aria-label="설정">${ICON.gear}</button></span>
   </div>`;
 function myBrowse(){
   return `${profApphead()}
   ${profHead(`<span class="ava meava" aria-hidden="true">${esc(meIni())}</span>`,meName(),"gyeore","",
     `<div class="ptags pchips ghosttags" aria-hidden="true"><span class="chip">${CAT_IC["카페"]}카페</span><span class="chip">${CAT_IC["음식점"]}식당</span><span class="chip">${IC.pin}동네</span></div>
-     <p class="pghost">카드를 연결하면 채워져요 <button class="inlink" data-act="link">카드 연결</button></p>
-     <div class="pstats">${statBtn(myFriends().length,"친구","myfriends")}</div>`,
+     <p class="pghost">카드를 연결하면 채워져요 <button class="inlink" data-act="link">카드 연결</button></p>`,
     `<button class="cta ghost" data-act="link">카드 연결</button>
-     <button class="cta ghost" data-act="addfriend">친구 추가</button>`)}
+     <button class="cta ghost" data-act="addfriend">친구 추가</button>`,
+    statBtn(myFriends().length,"친구","myfriends"))}
   <h2 class="ghead psec">하이라이트</h2>
   <div class="empty pempty"><p>카드를 연결하면 자주 간 곳이 여기 보여요</p></div>`;
 }
-/* 사람 페이지 문법 — 가운데 신원, 한 줄 소개, 취향 칩, 숫자 줄, 버튼 두 개. 장소 상세(좌측 제목·섹션 나열)와 구분된다. */
-function profHead(ava,name,handle,bio,below,acts){
-  return `<div class="profhead">${ava}<h1>${esc(name)}</h1><span class="handle">@${esc(handle)}</span>
-    ${bio?`<p class="bio">${bio}</p>`:""}${below||""}</div>
+/* 사람 페이지 문법 — 사진 왼쪽 · 숫자 오른쪽 위(숫자가 없으면 이름), 아래로 이름 · 한 줄 소개 · 취향 칩, 버튼 두 개. 장소 상세(좌측 제목·섹션 나열)와 구분된다. */
+function profHead(ava,name,handle,bio,below,acts,stats){
+  const id=`<h1>${esc(name)}</h1><span class="handle">@${esc(handle)}</span>`;
+  return `<div class="profhead"><div class="ptop">${ava}${stats?`<div class="pstats">${stats}</div>`:`<div class="pid">${id}</div>`}</div>
+    ${stats?id:""}${bio?`<p class="bio">${bio}</p>`:""}${below||""}</div>
   <div class="profactions">${acts}</div>`;
 }
-/* 취향 칩 — 가운데 정렬, 최대 두 줄. 넘치면 '+N' 칩(누르면 모두 펼침). 줄 수는 그려진 뒤 잰다(clampChips). */
+/* 취향 칩 — 왼쪽 정렬, 최대 두 줄. 넘치면 '+N' 칩(누르면 모두 펼침). 줄 수는 그려진 뒤 잰다(clampChips). */
 const tasteChips=(cats,areas)=>`<div class="ptags pchips" data-clamp="${S.chipsAll?"":"2"}">${cats.map(k=>`<button class="chip" data-act="tastego" data-v="cat|${esc(k)}">${gIcon((POIS.find(p=>p.cat===k)||{}).g)}${esc(k)}</button>`).join("")}${areas.map(k=>`<button class="chip" data-act="tastego" data-v="area|${k}">${IC.pin}${AREAS[k].name}</button>`).join("")}</div>`;
 function clampChips(){
   document.querySelectorAll('.phone #screen .pchips[data-clamp="2"]').forEach(box=>{
@@ -3786,10 +3798,9 @@ function myLinked(){
   return `${profApphead()}
   ${profHead(`<span class="ava meava" aria-hidden="true">${esc(meIni())}</span>`,meName(),"gyeore",
     `${topSlot} <b>${esc(topCat)}</b>파`,
-    `${tasteChips(cats.slice(0,6).map(c=>c.k),areas.slice(0,2))}
-     <div class="pstats">${statBtn(VISITS.length,"가본 곳","allvisits")}${statBtn(myFriends().length,"친구","myfriends")}</div>`,
-    `<button class="cta ghost" data-act="sheet" data-v="plink" aria-haspopup="dialog">프로필 공유</button>
-     <button class="cta ghost" data-act="addfriend">친구 추가</button>`)}
+    tasteChips(cats.slice(0,6).map(c=>c.k),areas.slice(0,2)),
+    `<button class="cta ghost" data-act="addfriend">친구 추가</button>`,
+    statBtn(VISITS.length,"가본 곳","allvisits")+statBtn(myFriends().length,"친구","myfriends"))}
   ${S.linked&&S.paused?pausedNudge():""}
   <h2 class="ghead psec">하이라이트</h2>
   ${hl}
